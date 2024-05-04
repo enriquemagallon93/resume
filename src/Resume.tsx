@@ -1,4 +1,4 @@
-import './App.scss'
+import './Resume.scss'
 
 import photo from './assets/photo.jpeg'
 
@@ -11,7 +11,7 @@ import { SiStorybook, SiTypescript, SiJest, SiWebpack, SiCypress, SiContentful, 
 const ICON_SIZE = 20;
 const STACK_ICON_SIZE = 16;
 
-function App() {
+const Resume = () => {
   return (
     <>
       <div className='page'>
@@ -256,4 +256,4 @@ function App() {
   )
 }
 
-export default App
+export default Resume

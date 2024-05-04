@@ -1,12 +1,12 @@
 import React from 'react'
 import { ViteReactSSG } from 'vite-react-ssg/single-page'
-import App from './App.tsx'
+import Resume from './Resume.tsx'
 
 import './reset.css'
 import './index.css'
 
 export const createRoot = ViteReactSSG(
   <React.StrictMode>
-    <App />
+    <Resume />
   </React.StrictMode>,
 )
