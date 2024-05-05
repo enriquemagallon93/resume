@@ -1,0 +1,386 @@
+{
+    "name": "Enrique",
+    "lastName": "Magallón",
+    "title": "Software Engineer",
+    "intro": [
+        "Hi! I am Enrique, a devoted engineer with 10+ years of web development experience. I love to learn about new technologies and use that knowledge to work with others and solve difficult challenges. Reach me out if you want me to take your project to the next level ",
+        {
+            "type": "ICON",
+            "name": "rocket",
+            "props": {
+                "color": "#449399"
+            }
+        }
+    ],
+    "info": [
+        {
+            "type": "LINK",
+            "to": "mailto:magallon.enrique.93@gmail.com",
+            "children": [
+                {
+                    "type": "ICON",
+                    "name": "email",
+                    "props": {
+                        "size": 20,
+                        "title": "email"
+                    }
+                },
+                " magallon.enrique.93@gmail.com"
+            ],
+            "props": {
+                "target": "_blank"
+            }
+        },
+        {
+            "type": "LINK",
+            "to": "tel:+52551-476-1570",
+            "children": [
+                {
+                    "type": "ICON",
+                    "name": "phone",
+                    "props": {
+                        "size": 20,
+                        "title": "phone"
+                    }
+                },
+                " +52 551 476 1570"
+            ],
+            "props": {
+                "target": "_blank"
+            }
+        },
+        {
+            "type": "BLOCK",
+            "children": [
+                {
+                    "type": "ICON",
+                    "name": "locationPin",
+                    "props": {
+                        "size": 20,
+                        "title": "location"
+                    }
+                },
+                " Mexico city"
+            ]
+        },
+        {
+            "type": "LINK",
+            "to": "https://www.linkedin.com/in/enrique-magall%C3%B3n-307045137/",
+            "children": [
+                {
+                    "type": "ICON",
+                    "name": "linkedIn",
+                    "props": {
+                        "size": 20,
+                        "title": "LinkedIn"
+                    }
+                },
+                " linkedin.com/in/enrique-magall%C3%B3n-307045137/"
+            ],
+            "props": {
+                "target": "_blank"
+            }
+        },
+        {
+            "type": "BLOCK",
+            "children": [
+                {
+                    "type": "ICON",
+                    "name": "language",
+                    "props": {
+                        "size": 20,
+                        "title": "languages"
+                    }
+                },
+                {
+                    "type": "LINK",
+                    "to": "https://drive.google.com/file/d/1DAWf0Ecge-DqtCHKDhEW6MThleNRvd8H/view?usp=sharing",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "children": [
+                        {
+                            "type": "TEXT",
+                            "children": "English",
+                            "bold": true
+                        },
+                        " Advance (C1)"
+                    ]
+                },
+                {
+                    "type": "TEXT",
+                    "children": [
+                        {
+                            "type": "TEXT",
+                            "children": [
+                                "Spanish"
+                            ],
+                            "bold": true
+                        },
+                        " Native Speaker"
+                    ]
+                }
+            ]
+        },
+        {
+            "type":"BLOCK",
+            "children": [
+                {
+                    "type":"LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://react.dev/",
+                    "children": [
+                        {
+                            "type":"ICON",
+                            "name": "react",
+                            "props": {
+                                "title": "react",
+                                "size": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type":"LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://nodejs.org/en/",
+                    "children": [
+                        {
+                            "type":"ICON",
+                            "name": "node",
+                            "props": {
+                                "title": "node",
+                                "size": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://storybook.js.org/",
+                    "children": [
+                        {
+                            "type": "ICON",
+                            "name": "storybook",
+                            "props": {
+                                "title": "storybook",
+                                "size": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://www.typescriptlang.org/",
+                    "children": [
+                        {
+                            "type": "ICON",
+                            "name": "typescript",
+                            "props": {
+                                "title": "typescript",
+                                "size": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://jestjs.io/",
+                    "children": [
+                        {
+                            "type": "ICON",
+                            "name": "jest",
+                            "props": {
+                                "title": "jest",
+                                "size": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://webpack.js.org/",
+                    "children": [
+                        {
+                            "type": "ICON",
+                            "name": "webpack",
+                            "props": {
+                                "title": "webpack",
+                                "size": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://rubyonrails.org/",
+                    "children": [
+                        {
+                            "type": "ICON",
+                            "name": "rubyOnRails",
+                            "props": {
+                                "title": "Ruby on Rails",
+                                "size": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://linuxconfig.org/bash-scripting-tutorial",
+                    "children": [
+                        {
+                            "type": "ICON",
+                            "name": "terminal",
+                            "props": {
+                                "title": "Bash scripting",
+                                "size": 16
+                            }
+                        }
+                    ]   
+                },
+                {
+                    "type": "LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://www.contentful.com/",
+                    "children": [
+                        {
+                            "type": "ICON",
+                            "name": "contentful",
+                            "props": {
+                                "title": "Contentful",
+                                "size": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://styled-components.com/",
+                    "children": [
+                        {
+                            "type": "ICON",
+                            "name": "styledComponents",
+                            "props": {
+                                "title": "Styled Components",
+                                "size": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://sass-lang.com/",
+                    "children": [
+                        {
+                            "type": "ICON",
+                            "name": "sass",
+                            "props": {
+                                "title": "Sass",
+                                "size": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://developer.mozilla.org/en-US/docs/Glossary/HTML5",
+                    "children": [
+                        {
+                            "type": "ICON",
+                            "name": "html5",
+                            "props": {
+                                "title": "HTML5",
+                                "size": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+                    "children": [
+                        {
+                            "type": "ICON",
+                            "name": "css3",
+                            "props": {
+                                "title": "CSS3",
+                                "size": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://redux.js.org/",
+                    "children": [
+                        {
+                            "type": "ICON",
+                            "name": "redux",
+                            "props": {
+                                "title": "Redux",
+                                "size": 16
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "LINK",
+                    "props": {
+                        "target": "_blank"
+                    },
+                    "to": "https://www.cypress.io/",
+                    "children": [
+                        {
+                            "type": "ICON",
+                            "name": "cypress",
+                            "props": {
+                                "title": "Cypress",
+                                "size": 16
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

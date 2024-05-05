@@ -1,102 +1,14 @@
 import './Resume.scss'
 
-import photo from './assets/photo.jpeg'
-
-import { MdEmail, MdOutlinePhoneAndroid, MdLocationPin, MdRocketLaunch  } from 'react-icons/md'
-import { IoLogoLinkedin } from "react-icons/io";
-import { FaLanguage } from "react-icons/fa6";
-import { FaReact, FaNodeJs, FaSass, FaHtml5, FaCss3, FaTerminal } from "react-icons/fa";
-import { SiStorybook, SiTypescript, SiJest, SiWebpack, SiCypress, SiContentful, SiStyledcomponents, SiRedux, SiRubyonrails } from "react-icons/si";
-
-const ICON_SIZE = 20;
-const STACK_ICON_SIZE = 16;
+import Header from './Header';
+import Info from './Info'
 
 const Resume = () => {
   return (
     <>
       <div className='page'>
-        <div className='header'>
-          <div className='header-text'>
-            <h1>Enrique Magallón</h1>
-            <h2>Software Engineer</h2>
-            <p className='intro'>
-              Hi! I am Enrique, a devoted engineer with 10+ years of web development experience.
-              I love to learn about new technologies and use that knowledge to work with others and solve difficult challenges.
-              Reach me out if you want me to take your project to the next level <MdRocketLaunch color='#449399' />
-            </p>
-          </div>
-          <div className='photo'>
-            <img src={photo} />
-          </div>
-        </div>
-        <div className='main-info'>
-          <a target='_blank' href="mailto:magallon.enrique.93@gmail.com">
-            <MdEmail title='email' size={ICON_SIZE} /> magallon.enrique.93@gmail.com
-          </a>
-          <a target='_blank' href="tel:+52551-476-1570">
-            <MdOutlinePhoneAndroid title='phone' size={ICON_SIZE} /> +52 551 476 1570
-          </a>
-          <div>
-            <MdLocationPin title='location' size={ICON_SIZE} /> Mexico city
-          </div>
-          <a target='_blank' href="https://www.linkedin.com/in/enrique-magall%C3%B3n-307045137/">
-            <IoLogoLinkedin title='linkedin' size={ICON_SIZE} /> linkedin.com/in/enrique-magall%C3%B3n-307045137/
-          </a>
-          <div>
-            <FaLanguage title='languages' size={ICON_SIZE} />
-            <a target='_blank' href="https://drive.google.com/file/d/1DAWf0Ecge-DqtCHKDhEW6MThleNRvd8H/view?usp=sharing">
-              <b>English:</b> Advance (C1)
-            </a>
-            <span><b>Spanish:</b> Native speaker</span>
-          </div>
-          <div>
-            <a target='_blank' href="https://react.dev/">
-              <FaReact title="React" size={STACK_ICON_SIZE} />
-            </a>
-            <a target='_blank' href="https://nodejs.org/en">
-              <FaNodeJs title='Nodejs' size={STACK_ICON_SIZE} />
-            </a>
-            <a target='_blank' href="https://storybook.js.org/">
-              <SiStorybook title='Storybook' size={STACK_ICON_SIZE} />
-            </a>
-            <a target='_blank' href="https://www.typescriptlang.org/">
-              <SiTypescript title='Typescript' size={STACK_ICON_SIZE} />
-            </a>
-            <a target='_blank' href="https://jestjs.io/">
-              <SiJest title='Jest' size={STACK_ICON_SIZE} />
-            </a>
-            <a target='_blank' href="https://webpack.js.org/">
-              <SiWebpack title='Webpack' size={STACK_ICON_SIZE} />
-            </a>
-            <a target='_blank' href="https://rubyonrails.org/">
-              <SiRubyonrails title='Ruby on rails' size={STACK_ICON_SIZE} />
-            </a>
-            <a target='_blank' href="https://linuxconfig.org/bash-scripting-tutorial">
-              <FaTerminal title='Bash scripting' size={STACK_ICON_SIZE} />
-            </a>
-            <a target='_blank' href="https://www.contentful.com/">
-              <SiContentful title='Contentful' size={STACK_ICON_SIZE} />
-            </a>
-            <a target='_blank' href="https://styled-components.com/">
-              <SiStyledcomponents title='Styled Components' size={STACK_ICON_SIZE} />
-            </a>
-            <a target='_blank' href="https://sass-lang.com/">
-              <FaSass title='SCSS' size={STACK_ICON_SIZE} />
-            </a>
-            <a target='_blank' href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5">
-              <FaHtml5 title='HTML5' size={STACK_ICON_SIZE} />
-            </a>
-            <a target='_blank' href="https://developer.mozilla.org/en-US/docs/Web/CSS">
-              <FaCss3 title='CSS3' size={STACK_ICON_SIZE} />
-            </a>
-            <a target='_blank' href="https://redux.js.org/">
-              <SiRedux  title='Redux' size={STACK_ICON_SIZE} />
-            </a>
-            <a target='_blank' href="https://www.cypress.io/">
-              <SiCypress title='Cypress' size={STACK_ICON_SIZE} />
-            </a>
-          </div>
-        </div>
+        <Header />
+        <Info />
         <div className='resume-body'>
           <h2>Education</h2>
           <h3>
