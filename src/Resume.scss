@@ -20,6 +20,7 @@
     unicode-bidi: isolate;
     font-size: 12px;
     line-height: 18px;
+    padding: 40px 50px;
 
     h2 {
         color: #32edd7;
@@ -27,6 +28,7 @@
 
     .header {
         padding: 40px 50px 20px 50px;
+        margin: -40px -50px 0 -50px;
         background-color: #313c4e;
         color: white;
         display: flex;
@@ -65,6 +67,7 @@
 
     .main-info {
         padding: 8px 50px;
+        margin: 0 -50px;
         background-color: #222a33;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -84,7 +87,7 @@
     }
 
     .resume-body {
-        padding: 20px 50px;
+        padding: 20px 0;
         color: black;
         display: flex;
         flex-direction: column;
