@@ -1,16 +1,11 @@
+import NodesParser from './NodesParser'
+import resume from './resume.json'
+
 const Body = () => {
     return (
         <div className='resume-body'>
-            <h2>Education</h2>
-            <h3>
-                BS: System Engineering | Utel | <i>Aug 2020 </i> | Naucalpan, Mexico
-            </h3>
-            <br />
-            <h2>Employment history</h2>
+            <NodesParser tree={resume.body} />
             <div>
-                <h3>
-                    <a target='_blank' href="https://www.housecallpro.com/">Housecall Pro</a> | Sr. React Engineer | <i>Jun 2022 - Present</i> | Fully remote
-                </h3>
                 <p> <b>HCP Core:</b> </p>
                 <p>
                     I worked in multiple cross-team efforts to incorporate new onboarding functionality, maintain and migrate legacy code. These are some highlights:

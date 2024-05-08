@@ -382,5 +382,63 @@
                 }
             ]
         }
+    ],
+    "body": [
+        {
+            "type": "BLOCK",
+            "children": [
+                {
+                    "type": "HEADING",
+                    "number": 2,
+                    "children": "Education"
+                },
+                {
+                    "type": "HEADING",
+                    "number": 3,
+                    "children": [
+                        "BS: System Engineering | Utel | ",
+                        {
+                            "type": "TEXT",
+                            "children": "Aug 2020",
+                            "italic": true
+                        },
+                        " | Naucalpan, Mexico"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "BLOCK",
+            "children": [
+                {
+                    "type": "HEADING",
+                    "number": 2,
+                    "children": "Employment history"
+                },
+                {
+                    "type": "HEADING",
+                    "number": 3,
+                    "children": [
+                        {
+                            "type":"LINK",
+                            "to": "https://www.housecallpro.com/",
+                            "children": [
+                                "Housecall Pro"
+                            ],
+                            "props": {
+                                "target": "_blank"
+                            }
+                        },
+                        " | Sr. React Engineer | ",
+                        {
+                            "type": "TEXT",
+                            "children": "Jun 2022 - Present",
+                            "italic": true
+                        },
+                        " | Fully remote"
+                    ]
+                }
+            ]
+        }
     ]
 }

@@ -104,42 +104,6 @@ const splitPageIntoPages = (originalPage: Element ): string[] => {
     return pages.map(page => page.innerHTML)
 }
 
-// const splitPages = (content: Element, toSplit: number[][]) => {
-//     console.log({content, toSplit})
-
-//     let firstPage = content.cloneNode(true);
-
-//     const pages = [] as Node[];
-
-//     toSplit.reverse().forEach(splitIndexes => {
-//         const lastPage = firstPage.cloneNode();
-//         let currentFirstPageNode = firstPage;
-//         let currentLastPageNode = lastPage;
-        
-//         splitIndexes.forEach((indexToSplit) => {
-//             for (let nodeIndex = indexToSplit; nodeIndex < currentFirstPageNode.childNodes.length; nodeIndex++) {
-//                 const node = currentFirstPageNode.childNodes[nodeIndex];
-
-//                 currentLastPageNode.appendChild(node.cloneNode());
-
-//                 if (nodeIndex > indexToSplit) {
-//                     currentFirstPageNode.removeChild(node);
-//                 }
-//             }
-//             currentFirstPageNode = currentFirstPageNode.childNodes[indexToSplit];
-//             currentLastPageNode = currentLastPageNode.childNodes[0];
-//         });
-
-//         pages.unshift(lastPage);
-//     });
-
-//     pages.unshift(firstPage);
-
-//     console.log({pages})
-
-//     return pages;
-// }
-
 const Pages= ({ children }: { children: ReactNode }) => {
     const [pages, setPages] = useState([] as String[]);
     const [isReady, setIsReady] = useState(false);
@@ -164,8 +128,10 @@ const Pages= ({ children }: { children: ReactNode }) => {
         }
     }, [children]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        console.log('set ready');
         setIsReady(false);
+        setPages([]);
     }, [children])
 
     return (
