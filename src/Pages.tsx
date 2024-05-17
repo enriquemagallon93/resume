@@ -136,8 +136,6 @@ const getCloningFunctions = (originalPage: Element) => {
     }
 
     const clone = (initialPath: number[], limit = [] as number[]) => {
-        console.log('Cloning pages from limit', initialPath, limit);
-
         const result = cloneFromPathToLimit(originalPage, originalPage.cloneNode() as Element, initialPath, limit)
 
         return result;
