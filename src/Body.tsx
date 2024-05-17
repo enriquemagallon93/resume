@@ -6,21 +6,6 @@ const Body = () => {
         <div className='resume-body'>
             <NodesParser tree={resume.body} />
             <div>
-                <p> <b>HCP Core:</b> </p>
-                <p>
-                    I worked in multiple cross-team efforts to incorporate new onboarding functionality, maintain and migrate legacy code. These are some highlights:
-                </p>
-                <ul>
-                    <li>
-                        Designed and implemented from start to finish a new React component that touched the domain of 16 squads and was visible for billions of users as it was implemented on every page. This was a difficult challenge as it required the component to let other non-React elements to work with it. The solution required approvals from many people including product owners, team leaders and staff engineers.
-                    </li>
-                    <li>
-                        Changed Github workflows in the design system repository to improve the way developers had to test feature branches in other repositories.
-                    </li>
-                    <li>
-                        Led and participated in code interviews for both, React and Ruby on Rails Senior candidates
-                    </li>
-                </ul>
                 <p> <b>Conquer:</b> </p>
                 <p>
                     I collaborated with my teammates to create an LMS (Learning management system) in a greenfield project. These are some of my achievements:
@@ -96,17 +81,15 @@ const Body = () => {
                     <li>
                         Implemented REST API services using nodejs and Mongo DB.
                     </li>
+                    <li>
+                        Was in charge of the websites of some clients (Dish, Exa FM, Infonavit, Jumex).
+                    </li>
+                    <li>
+                        Developed a fully in-house CMS for dish.com.mx
+                    </li>
                 </ul>
             </div>
 
-            <ul>
-                <li>
-                    Was in charge of the websites of some clients (Dish, Exa FM, Infonavit, Jumex).
-                </li>
-                <li>
-                    Developed a fully in-house CMS for dish.com.mx
-                </li>
-            </ul>
             <br />
             <h2>
                 Soft Skills

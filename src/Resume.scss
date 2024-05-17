@@ -21,6 +21,20 @@
     font-size: 12px;
     line-height: 18px;
     padding: 40px 50px;
+    position: relative;
+
+    &::before {
+        content: '-';
+        color: transparent;
+        display: none;
+        // display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 40px solid rgba(100,100,100,0.5)
+    }
 
     h2 {
         color: #32edd7;

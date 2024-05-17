@@ -416,26 +416,62 @@
                     "children": "Employment history"
                 },
                 {
-                    "type": "HEADING",
-                    "number": 3,
+                    "type": "BLOCK",
                     "children": [
                         {
-                            "type":"LINK",
-                            "to": "https://www.housecallpro.com/",
+                            "type": "HEADING",
+                            "number": 3,
                             "children": [
-                                "Housecall Pro"
-                            ],
-                            "props": {
-                                "target": "_blank"
-                            }
-                        },
-                        " | Sr. React Engineer | ",
+                                {
+                                    "type":"LINK",
+                                    "to": "https://www.housecallpro.com/",
+                                    "children": [
+                                        "Housecall Pro"
+                                    ],
+                                    "props": {
+                                        "target": "_blank"
+                                    }
+                                },
+                                " | Sr. React Engineer | ",
+                                {
+                                    "type": "TEXT",
+                                    "children": "Jun 2022 - Present",
+                                    "italic": true
+                                },
+                                " | Fully remote"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "BLOCK",
+            "children": [
+                {
+                    "type": "PARAGRAPH",
+                    "children": [
                         {
                             "type": "TEXT",
-                            "children": "Jun 2022 - Present",
-                            "italic": true
-                        },
-                        " | Fully remote"
+                            "children": "HCP Core",
+                            "bold": true
+                        }
+                    ]
+                },
+                {
+                    "type": "PARAGRAPH",
+                    "children": [
+                        {
+                            "type": "TEXT",
+                            "children": "I worked in multiple cross-team efforts to incorporate new onboarding functionality, maintain and migrate legacy code. These are some highlights:"
+                        }
+                    ]
+                }, {
+                    "type": "BULLETED_LIST",
+                    "children": [
+                        "Designed and implemented from start to finish a new React component that touched the domain of 16 squads and was visible for billions of users as it was implemented on every page. This was a difficult challenge as it required the component to let other non-React elements to work with it. The solution required approvals from many people including product owners, team leaders and staff engineers.",
+                        "Changed Github workflows in the design system repository to improve the way developers had to test feature branches in other repositories.",
+                        "Led and participated in code interviews for both, React and Ruby on Rails Senior candidates"
                     ]
                 }
             ]

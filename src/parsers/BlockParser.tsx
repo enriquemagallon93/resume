@@ -3,13 +3,13 @@ import React from 'react';
 
 export const BLOCK_NODE_TYPE = 'BLOCK';
 
-type LinkNode = TreeNode & {
+type BlockNode = TreeNode & {
     type: typeof BLOCK_NODE_TYPE,
     children?: MaybeTree;
     props?: React.HTMLAttributes<HTMLDivElement>
 }
 
-const isABlockNode = (node: any): node is LinkNode  => 
+const isABlockNode = (node: any): node is BlockNode  => 
     node.type === BLOCK_NODE_TYPE && (typeof node.props === 'object' || typeof node.props === 'undefined')
 
 const BlockParser = (node: MaybeTree) => {
