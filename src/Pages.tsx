@@ -40,14 +40,11 @@ const getPageFunctions = (originalPage: Element) => {
         return recursivelyFromPath(currentElement.children[index], [...path])
     }
 
-    const getElementAtPath = (path: number[]) => recursivelyFromPath(originalPage, path)
-
     const removeEmptyPaths = (path: number[]) => path.join(',').replace(/(,0)+$/g, '').split(',').map(number => Number.parseInt(number))
 
     return {
         fitInPage,
         getLastPageNumber,
-        getElementAtPath,
         removeEmptyPaths
     };
 }
@@ -55,7 +52,7 @@ const getPageFunctions = (originalPage: Element) => {
 const excludedNodes = new Set(['BR'])
 
 const getPathsToSplit = (originalPage: Element ): number[][] => {
-    const { fitInPage, getLastPageNumber, getElementAtPath, removeEmptyPaths } = getPageFunctions(originalPage);
+    const { fitInPage, getLastPageNumber, removeEmptyPaths } = getPageFunctions(originalPage);
 
     const numberOfPages = getLastPageNumber(originalPage);
 

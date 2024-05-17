@@ -1,6 +1,3 @@
-import photo from './assets/photo.jpeg'
-
-
 import resume from './resume.json'
 import NodesParser from './NodesParser'
 
@@ -15,7 +12,7 @@ const Header = () => {
                 </p>
             </div>
             <div className='photo'>
-                <img src={photo} />
+                <NodesParser tree={resume.photo} />
             </div>
         </div>
     )

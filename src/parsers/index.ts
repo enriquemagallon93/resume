@@ -3,6 +3,7 @@ import BlockParser, { BLOCK_NODE_TYPE } from './BlockParser';
 import BulletedListParser, { BULLETED_LIST_NODE_TYPE } from './BulletedListParser';
 import HeadingParser, { HEADING_NODE_TYPE } from './HeadingParser';
 import IconParser, { ICON_NODE_TYPE } from './IconParser';
+import ImageParser, { IMAGE_NODE_TYPE } from './ImageParser';
 import LinkParser, {LINK_NODE_TYPE} from './LinkParser';
 import ParagraphParser, { PARAGRAPH_NODE_TYPE } from './ParagraphParser';
 import TextParser, { TEXT_NODE_TYPE } from './TextParser';
@@ -14,5 +15,6 @@ export default {
     [TEXT_NODE_TYPE]: TextParser,
     [HEADING_NODE_TYPE]: HeadingParser,
     [PARAGRAPH_NODE_TYPE]: ParagraphParser,
-    [BULLETED_LIST_NODE_TYPE]: BulletedListParser
+    [BULLETED_LIST_NODE_TYPE]: BulletedListParser,
+    [IMAGE_NODE_TYPE]: ImageParser
 } as { [key in string]?: (props: TreeNode) => JSX.Element }
