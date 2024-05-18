@@ -1,4 +1,6 @@
 import { ReactNode, useLayoutEffect, useRef, useState } from 'react';
+import Page from './Page';
+import { A4 } from './constants';
 
 const fromPixelsString = (px: string): number => Math.round(Number.parseFloat(px) * 10000) / 10000;
 
@@ -160,7 +162,7 @@ const Pages= ({ children }: { children: ReactNode }) => {
             const { cloneFromPathToLimit } = getCloningFunctions(fullPage);
 
             const pageElements = pathsToSplit.map((path, index) => {
-                return cloneFromPathToLimit(path, pathsToSplit[index + 1]).innerHTML
+                return cloneFromPathToLimit(path, pathsToSplit[index + 1]).outerHTML
             })
 
             setPages(pageElements);
@@ -182,13 +184,13 @@ const Pages= ({ children }: { children: ReactNode }) => {
         <>
             {isReady ? (
                 pages.map((page, index) => {
-                    return <div key={index} className='page' dangerouslySetInnerHTML={{ __html: page }} />
+                    return <div key={index} dangerouslySetInnerHTML={{ __html: page }} />
                 })
             ) : (
                 <div style={{ /* visibility: 'hidden', maxWidth: 0, maxHeight: 0, overflow: 'hidden' */}} >
-                    <div ref={originalPage} className='page'>
+                    <Page ref={originalPage} {...A4}>
                         {children}
-                    </div>
+                    </Page>
                 </div>
             )}
         </>

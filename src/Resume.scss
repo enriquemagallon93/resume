@@ -1,27 +1,5 @@
 .page {  
-    background: white;
-    width: 21cm;
-    height: 29.7cm;
-    display: block;
-    margin: 0 auto;
-    margin-top: 0.5cm;
-    margin-bottom: 0.5cm;
-    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
-    font-family: 'Ubuntu', sans-serif;
-    text-rendering: optimizeLegibility;
-    text-size-adjust: 100%;
-    font-style: normal;
-    font-variant-alternates: normal;
-    font-variant-caps: normal;
-    font-variant-east-asian: normal;
-    font-variant-ligatures: normal;
-    font-variant-numeric: normal;
-    font-variant-position: normal;
-    unicode-bidi: isolate;
-    font-size: 12px;
-    line-height: 18px;
-    padding: 40px 50px;
-    position: relative;
+    
 
     &::before {
         content: '-';
