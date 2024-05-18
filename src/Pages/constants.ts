@@ -12,6 +12,6 @@ export const A4: PageSize = {
 export const LETTER: PageSize = {
     width: '21.59cm',
     height: "27.94cm",
-    horizontalMargin: 50,
-    verticalMargin: 40
+    horizontalMargin: 30,
+    verticalMargin: 20
 }

@@ -18,8 +18,6 @@
     }
 
     .header {
-        padding: 40px 50px 20px 50px;
-        margin: -40px -50px 0 -50px;
         background-color: #313c4e;
         color: white;
         display: flex;
@@ -57,14 +55,6 @@
     }
 
     .main-info {
-        padding: 8px 50px;
-        margin: 0 -50px;
-        background-color: #222a33;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-        gap: 8px;
-        color: white;
 
         & > * {
             display: flex;

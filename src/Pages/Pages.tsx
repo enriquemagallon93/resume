@@ -1,6 +1,6 @@
 import { ReactNode, useLayoutEffect, useRef, useState } from 'react';
 import Page from './Page';
-import { A4 } from './constants';
+import { A4, LETTER } from './constants';
 
 const fromPixelsString = (px: string): number => Math.round(Number.parseFloat(px) * 10000) / 10000;
 
@@ -188,7 +188,7 @@ const Pages= ({ children }: { children: ReactNode }) => {
                 })
             ) : (
                 <div style={{ /* visibility: 'hidden', maxWidth: 0, maxHeight: 0, overflow: 'hidden' */}} >
-                    <Page ref={originalPage} {...A4}>
+                    <Page ref={originalPage} {...A4} {...LETTER}>
                         {children}
                     </Page>
                 </div>
