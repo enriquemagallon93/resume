@@ -1,5 +1,7 @@
 import NodesParser, { MaybeTree, TreeNode } from '../NodesParser';
 import React from 'react';
+import * as stylex from '@stylexjs/stylex';
+import { colors } from '../themes/palette.stylex';
 
 export const HEADING_NODE_TYPE = 'HEADING';
 
@@ -10,13 +12,42 @@ type HeadingNode = TreeNode & {
     number: Number;
 }
 
+export const styles = stylex.create({
+    1: {},
+    2: {
+        color: colors.hightlight
+    },
+    3: {},
+    4: {},
+    5: {},
+    6: {}
+})
+
+const mergeStyles = (
+    props: HeadingNode['props'],
+    number: 1 | 2 | 3 | 4 | 5 | 6
+): HeadingNode['props'] => {
+    const { style, className } = stylex.props(styles[number] || null)
+
+    console.log({style, className, styles, number})
+
+    return {
+        ...props,
+        style: {
+            ...props?.style,
+            ...style,
+        },
+        className: `${className} ${props?.className || ''}`
+    }
+}
+
 const Headings: { [key in string]?: (props: HeadingNode['props']) => JSX.Element } = {
-    1: (props) => <h1 {...props} />,
-    2: (props) => <h2 {...props} />,
-    3: (props) => <h3 {...props} />,
-    4: (props) => <h4 {...props} />,
-    5: (props) => <h5 {...props} />,
-    6: (props) => <h6 {...props} />
+    1: (props) => <h1 {...mergeStyles(props, 1)} />,
+    2: (props) => <h2 {...mergeStyles(props, 2)} />,
+    3: (props) => <h3 {...mergeStyles(props, 3)} />,
+    4: (props) => <h4 {...mergeStyles(props, 4)} />,
+    5: (props) => <h5 {...mergeStyles(props, 5)} />,
+    6: (props) => <h6 {...mergeStyles(props, 6)} />
 }
 
 const isAHeadingNode = (node: any): node is HeadingNode  => 

@@ -4,6 +4,7 @@ import * as stylex from '@stylexjs/stylex';
 import { PageSize } from './types';
 
 import { size } from './page.stylex'
+import { styleStylexCssVars } from '../utils/cssVariables';
 
 const styles = stylex.create({
     page: {
@@ -38,29 +39,7 @@ const styles = stylex.create({
 
 export type PageProps = PageSize & { children: ReactNode }
 
-const createAliasedCssVars = <K extends string,V>(vars: stylex.VarGroup<Readonly<{
-    [key in K]?: V
-}>, symbol>, aliases: {
-    [key in K]?: {
-        alias: string,
-        value?: V
-    }
-}) => {
-    return Object.entries<{
-        alias: string,
-        value?: V
-    }>(aliases as {[key in string]: {
-        alias: string,
-        value?: V
-    }}).reduce((aliased, [cssVar, {alias, value}]) => {
-        const aliasVar = `--${alias}`
-        return {
-            ...aliased,
-            [aliasVar]: value,
-            [vars[cssVar as K].slice(4, -1)]: `var(${aliasVar})`
-        }
-    }, {} as Record<string, unknown>)
-}
+
 
 const sanitizeUnits = <T,>(unit: T | number) => typeof unit === 'number' ? `${unit}px` as const : unit 
 
@@ -75,24 +54,24 @@ const Page = forwardRef(
         }: PageProps,
         ref: ForwardedRef<HTMLDivElement>
     ) {
-        const aliasStyles = createAliasedCssVars(
+        const cssVarsStyles = styleStylexCssVars(
             size,
             {
                 pageWidth: {
                     alias: 'pageWidth',
-                    value: sanitizeUnits(width)
+                    newValueForCssVar: sanitizeUnits(width)
                 },
                 pageHeight: {
                     alias: 'pageHeight',
-                    value: sanitizeUnits(height)
+                    newValueForCssVar: sanitizeUnits(height)
                 },
                 pageHorizontalPadding: {
                     alias: 'pageHorizontalPadding',
-                    value: sanitizeUnits(horizontalMargin)
+                    newValueForCssVar: sanitizeUnits(horizontalMargin)
                 },
                 pageVerticalPadding: {
                     alias: 'pageVerticalPadding',
-                    value: sanitizeUnits(verticalMargin)
+                    newValueForCssVar: sanitizeUnits(verticalMargin)
                 }
             }
         );
@@ -100,7 +79,7 @@ const Page = forwardRef(
         return (
         <div ref={ref} className={`page ${className}`} style={{
             ...style,
-            ...aliasStyles
+            ...cssVarsStyles
         }} >
             {children}
         </div>

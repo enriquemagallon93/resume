@@ -4,6 +4,8 @@ import NodesParser from './NodesParser'
 import * as stylex from '@stylexjs/stylex';
 
 import { size } from './Pages/page.stylex';
+import { colors } from './themes/palette.stylex';
+import {styles as headingStyles} from './parsers/HeadingParser';
 
 const style = stylex.create({
     header: {
@@ -14,7 +16,7 @@ const style = stylex.create({
         paddingRight: size.pageHorizontalPadding,
         paddingTop: size.pageVerticalPadding,
         paddingBottom: 20,
-        backgroundColor: "#313c4e",
+        backgroundColor: colors.primaryBackground,
         color: "white",
         display: "flex",
         gap: "50px",
@@ -27,7 +29,7 @@ const Header = () => {
         <div className='header' {...stylex.props(style.header)}>
             <div className='header-text'>
                 <h1>{resume.name} {resume.lastName}</h1>
-                <h2>{resume.title}</h2>
+                <h2 {...stylex.props(headingStyles[2])}>{resume.title}</h2>
                 <p className='intro'>
                     {<NodesParser tree={resume.intro} />}
                 </p>

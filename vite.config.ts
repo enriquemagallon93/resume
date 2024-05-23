@@ -10,6 +10,6 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react(), styleX()],
-    base: env.VITE_BASE_PATH
+    base: env.VITE_BASE_PATH,
   }
 })

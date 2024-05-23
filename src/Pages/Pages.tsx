@@ -1,6 +1,7 @@
 import { ReactNode, useLayoutEffect, useRef, useState } from 'react';
 import Page from './Page';
-import { A4, LETTER } from './constants';
+import { A4 } from './constants';
+import Theme from '../themes/Theme';
 
 const fromPixelsString = (px: string): number => Math.round(Number.parseFloat(px) * 10000) / 10000;
 
@@ -181,19 +182,19 @@ const Pages= ({ children }: { children: ReactNode }) => {
     }, [children])
 
     return (
-        <>
+        <Theme>
             {isReady ? (
                 pages.map((page, index) => {
                     return <div key={index} dangerouslySetInnerHTML={{ __html: page }} />
                 })
             ) : (
-                <div style={{ /* visibility: 'hidden', maxWidth: 0, maxHeight: 0, overflow: 'hidden' */}} >
-                    <Page ref={originalPage} {...A4} {...LETTER}>
+                <div >
+                    <Page ref={originalPage} {...A4}>
                         {children}
                     </Page>
                 </div>
             )}
-        </>
+        </Theme>
     )
 }
 

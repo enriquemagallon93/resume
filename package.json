@@ -34,11 +34,7 @@
     "sass": "^1.76.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
+    "vite-plugin-global-const": "^0.0.5",
     "vite-react-ssg": "^0.6.2"
-  },
-  "overrides": {
-    "vite-plugin-stylex": {
-      "@stylexjs/babel-plugin": "0.4.1"
-    }
   }
 }
