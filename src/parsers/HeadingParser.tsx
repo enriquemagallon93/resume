@@ -13,9 +13,15 @@ type HeadingNode = TreeNode & {
 }
 
 export const styles = stylex.create({
-    1: {},
+    1: {
+        fontSize: 30,
+        lineHeight: 1,
+        fontWeight: 'normal',
+    },
     2: {
-        color: colors.hightlight
+        color: colors.hightlight,
+        fontSize: 16,
+        lineHeight: '20px',
     },
     3: {},
     4: {},

@@ -43,7 +43,7 @@ const Header = () => {
     return (
         <div className='header' {...stylex.props(style.header)}>
             <div {...stylex.props(style.text)}>
-                <h1>{resume.name} {resume.lastName}</h1>
+                <h1 {...stylex.props(headingStyles[1])}>{resume.name} {resume.lastName}</h1>
                 <h2 {...stylex.props(headingStyles[2])}>{resume.title}</h2>
                 <p className='intro'>
                     {<NodesParser tree={resume.intro} />}
