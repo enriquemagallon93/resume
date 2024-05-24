@@ -57,7 +57,7 @@ const IconParser = (node: MaybeTree) => {
 
     if (!Icon) return <></>;
 
-    return <Icon {...node.props} />;
+    return <Icon className='Parsed_Icon' {...node.props} />;
 }
 
 export default IconParser
