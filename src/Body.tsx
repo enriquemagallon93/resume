@@ -28,6 +28,12 @@ const styles = stylex.create({
         },
         ":not(#___unused___) b": {
             fontWeight: 800,
+        },
+        ":not(#___unused___) .url_link": {
+            color: colors.hyper,
+        },
+        ":not(#___unused___) .url_link:hover": {
+            textDecoration: 'underline'
         }
     }
 })

@@ -9,8 +9,9 @@ export const dark = stylex.createTheme(colors, {
     secondaryHightlight: "#4a5a57",
     secondaryBackground: "#222323",
     bold: "#478b8d",
-    pageBackground: "#1e1e1d",
+    pageBackground: "#2a2a29",
     pageColor: "#a9a49b",
-    pageHightlight: "#687979"
+    pageHightlight: "#687979",
+    hyper: "#4B5D7C"
 })
 

@@ -692,7 +692,7 @@
                     "to": "https://www.udemy.com/certificate/UC-87e0221a-4e36-4a94-870b-c44d9a4fa04a/?utm_campaign=email&utm_source=sendgrid.com&utm_medium=email",
                     "props": {
                         "target": "_blank",
-                        "className": "blue"
+                        "className": "url_link"
                     },
                     "children": "https://www.udemy.com/certificate/UC-87e0221a-4e36-4a94-870b-c44d9a4fa04a/?utm_campaign=email&utm_source=sendgrid.com&utm_medium=email"
                 }
@@ -718,7 +718,7 @@
                     "to": "https://www.udemy.com/certificate/UC-87e0221a-4e36-4a94-870b-c44d9a4fa04a/?utm_campaign=email&utm_source=sendgrid.com&utm_medium=email",
                     "props": {
                         "target": "_blank",
-                        "className": "blue"
+                        "className": "url_link"
                     },
                     "children": "https://www.udemy.com/certificate/UC-87e0221a-4e36-4a94-870b-c44d9a4fa04a/?utm_campaign=email&utm_source=sendgrid.com&utm_medium=email"
                 }
