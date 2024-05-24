@@ -6,6 +6,8 @@ export const dark = stylex.createTheme(colors, {
     primaryBackground: "#2b2c2e",
     hightlight: "#4b8c8d",
     primaryColor: "#a9a49b",
-    secondaryHightlight: "#4a5a57"
+    secondaryHightlight: "#4a5a57",
+    secondaryBackground: "#222323",
+    bold: "#478b8d"
 })
 

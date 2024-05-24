@@ -5,6 +5,7 @@ import resume from './resume.json'
 import * as stylex from '@stylexjs/stylex';
 
 import { size } from './Pages/page.stylex';
+import { colors } from './themes/palette.stylex';
 
 const styles = stylex.create({
     mainInfo: {
@@ -13,12 +14,20 @@ const styles = stylex.create({
         padding: '8px',
         paddingLeft: size.pageHorizontalPadding,
         paddingRight: size.pageHorizontalPadding,
-        backgroundColor: "#222a33",
+        backgroundColor: colors.secondaryBackground,
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
         gridTemplateRows: "auto",
         gap: "8px",
-        color: "white"
+        color: colors.primaryColor,
+        ":not(#___unused___) > *": {
+            display: 'flex',
+            alignItems: 'flex-end',
+            gap: 6
+        },
+        ":not(#___unused___) b": {
+            color: colors.bold
+        }
     }
 });
 
