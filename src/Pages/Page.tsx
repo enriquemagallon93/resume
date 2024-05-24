@@ -5,6 +5,7 @@ import { PageSize } from './types';
 
 import { size } from './page.stylex'
 import { styleStylexCssVars } from '../utils/cssVariables';
+import { colors } from '../themes/palette.stylex';
 
 const styles = stylex.create({
     page: {
@@ -14,7 +15,8 @@ const styles = stylex.create({
         paddingRight: size.pageHorizontalPadding,
         paddingTop: size.pageVerticalPadding,
         paddingBottom: size.pageVerticalPadding,
-        background: 'white',
+        background: colors.pageBackground,
+        color: colors.pageColor,
         display: 'block',
         margin: '0 auto',
         marginTop: '0.5cm',

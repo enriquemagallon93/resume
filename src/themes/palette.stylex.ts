@@ -6,5 +6,8 @@ export const colors = stylex.defineVars({
     hightlight: "#32edd7",
     secondaryHightlight: "#449399",
     primaryColor: "#FFFFFF",
-    bold: "#32edd7"
+    bold: "#32edd7",
+    pageBackground: "#FFFFFF",
+    pageColor: "#000000",
+    pageHightlight: "#4493a9"
 });
