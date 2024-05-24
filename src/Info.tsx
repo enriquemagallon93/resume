@@ -19,13 +19,19 @@ const styles = stylex.create({
         gridTemplateColumns: "1fr 1fr",
         gridTemplateRows: "auto",
         gap: "8px",
-        color: colors.primaryColor,
+        color: colors.secondaryColor,
         ":not(#___unused___) > *": {
             display: 'flex',
             alignItems: 'flex-end',
             gap: 6
         },
         ":not(#___unused___) b": {
+            color: colors.bold
+        },
+        ":not(#___unused___) a": {
+            transition: "color 150ms linear",
+        },
+        ":not(#___unused___) a:hover": {
             color: colors.bold
         }
     }

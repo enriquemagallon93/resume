@@ -5,10 +5,13 @@ import { colors } from './themes/palette.stylex';
 
 const styles = stylex.create({
     body: {
-        padding: '20px 0',
+        marginTop: 20,
         display: 'flex',
         flexDirection: 'column',
         gap: 8,
+        ":first-child": {
+            marginTop: 0
+        },
         ":not(#___unused___) h2": {
             fontSize: 22,
             color: colors.pageHightlight,

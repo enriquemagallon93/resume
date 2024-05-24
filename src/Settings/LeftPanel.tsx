@@ -5,8 +5,7 @@ import ThemeSelector from '../themes/ThemeSelector';
 
 const styles = stylex.create({
     container: {
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
         display: 'flex',
         flexWrap: 'no-wrap'
     },
