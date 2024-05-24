@@ -35,8 +35,6 @@ const mergeStyles = (
 ): HeadingNode['props'] => {
     const { style, className } = stylex.props(styles[number] || null)
 
-    console.log({style, className, styles, number})
-
     return {
         ...props,
         style: {
