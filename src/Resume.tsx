@@ -1,4 +1,3 @@
-import './Resume.scss'
 
 import Header from './Header';
 import Info from './Info';

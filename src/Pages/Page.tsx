@@ -3,6 +3,7 @@ import { ForwardedRef, forwardRef, type ReactNode } from 'react';
 import * as stylex from '@stylexjs/stylex';
 import { PageSize } from './types';
 
+import type {StyleXStyles} from '@stylexjs/stylex';
 import { size } from './page.stylex'
 import { styleStylexCssVars } from '../utils/cssVariables';
 import { colors } from '../themes/palette.stylex';
@@ -36,10 +37,16 @@ const styles = stylex.create({
         fontSize: '12px',
         lineHeight: '18px',
         position: 'relative',
+        "@media print": {
+            width: size.pageWidth,
+            height: size.pageHeight,
+            margin: '0 !important',
+            boxShadow: 'none',
+        }
     }
 })
 
-export type PageProps = PageSize & { children: ReactNode }
+export type PageProps = PageSize & { children: ReactNode; style?: StyleXStyles; }
 
 
 
@@ -52,7 +59,8 @@ const Page = forwardRef(
             width = 'auto',
             height = 'auto',
             horizontalMargin = 0,
-            verticalMargin = 0
+            verticalMargin = 0,
+            style: parentStyles,
         }: PageProps,
         ref: ForwardedRef<HTMLDivElement>
     ) {
@@ -77,7 +85,7 @@ const Page = forwardRef(
                 }
             }
         );
-        const { className, style } = stylex.props(styles.page)
+        const { className, style } = stylex.props(styles.page, parentStyles)
         return (
         <div ref={ref} className={`page ${className}`} style={{
             ...style,
