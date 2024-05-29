@@ -2,6 +2,7 @@ import * as stylex from '@stylexjs/stylex';
 import { ReactNode, useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import ThemeSelector from '../themes/ThemeSelector';
+import PageSizeSelector from '../Pages/PageSizeSelector';
 
 const styles = stylex.create({
     container: {
@@ -16,9 +17,12 @@ const styles = stylex.create({
     }),
     outside: {
         flexGrow: 1,
+        overflow: 'scroll',
+        maxHeight: '100vh',
     },
     panel: (isOpen: boolean) => ({
         position: 'fixed',
+        zIndex: 1,
         background: '#313131',
         borderRight: '1px solid white',
         left: 0,
@@ -61,6 +65,7 @@ const LeftPanel = ({ children }: { children: ReactNode }) => {
                     }} /> }
                 </div>
                 <ThemeSelector />
+                <PageSizeSelector />
             </div>
         </div>
         <div {...stylex.props(styles.outside)}>

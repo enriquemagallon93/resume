@@ -1,10 +1,10 @@
 import { ReactNode, useLayoutEffect, useRef, useState } from 'react';
 import Page from './Page';
-import { A4 } from './constants';
 import Theme from '../themes/Theme';
 import { getCloningFunctions, getPathsToSplit } from '../utils/htmlPaginator';
 
 import * as stylex from '@stylexjs/stylex';
+import useSettings from '../Settings/useSettings';
 
 const styles = stylex.create({
     noJs: {
@@ -16,6 +16,12 @@ const Pages= ({ children }: { children: ReactNode }) => {
     const [pages, setPages] = useState([] as String[]);
     const [isReady, setIsReady] = useState(false);
     const [isServerSide, setIsServerSide] = useState(true);
+    const {
+        width,
+        height,
+        horizontalMargin,
+        verticalMargin,
+    } = useSettings();
 
     const originalPage = useRef<HTMLDivElement | null>(null);
 
@@ -24,6 +30,12 @@ const Pages= ({ children }: { children: ReactNode }) => {
     },[])
 
     useLayoutEffect(() => {
+        setIsReady(false);
+        setPages([]);
+    }, [children, width, height, horizontalMargin, verticalMargin])
+
+    useLayoutEffect(() => {
+        if (isReady) return
         const fullPage = originalPage.current;
 
         if (!fullPage) return;
@@ -44,12 +56,7 @@ const Pages= ({ children }: { children: ReactNode }) => {
         return () => {
             clearTimeout(delayToCalculatePages);
         }
-    }, [children]);
-
-    useLayoutEffect(() => {
-        setIsReady(false);
-        setPages([]);
-    }, [children])
+    }, [isReady]);
 
     return (
         <Theme>
@@ -59,7 +66,12 @@ const Pages= ({ children }: { children: ReactNode }) => {
                 })
             ) : (
                 <div >
-                    <Page style={[ isServerSide && styles.noJs]} ref={originalPage} {...A4}>
+                    <Page style={[ isServerSide && styles.noJs]} ref={originalPage}
+                        width={width}
+                        height={height}
+                        horizontalMargin={horizontalMargin}
+                        verticalMargin={verticalMargin}
+                    >
                         {children}
                     </Page>
                 </div>
