@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
-import { ReactNode, useState } from 'react';
+import { ReactNode, useLayoutEffect, useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import ThemeSelector from '../themes/ThemeSelector';
 import PageSizeSelector from '../Pages/PageSizeSelector';
@@ -51,27 +51,35 @@ const styles = stylex.create({
 });
 
 const LeftPanel = ({ children }: { children: ReactNode }) => {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
+    const [showPanel, setShowPanel] = useState(false)
+
+    useLayoutEffect(() => {
+        setShowPanel(true);
+        setIsOpen(true);
+    }, [])
   return (
-    <div {...stylex.props(styles.container)}>
-        <div {...stylex.props(styles.spacer(isOpen))}>
-            <div {...stylex.props(styles.panel(isOpen))} >
-                <div {...stylex.props(styles.header(isOpen))}>
-                    <h1> Settings </h1>
-                    {isOpen ? <FaAngleLeft cursor="pointer" onClick={() => {
-                        setIsOpen(false);
-                    }} /> : <FaAngleRight cursor="pointer" onClick={() => {
-                        setIsOpen(true)
-                    }} /> }
+    showPanel ? (
+        <div {...stylex.props(styles.container)}>
+            <div {...stylex.props(styles.spacer(isOpen))}>
+                <div {...stylex.props(styles.panel(isOpen))} >
+                    <div {...stylex.props(styles.header(isOpen))}>
+                        <h1> Settings </h1>
+                        {isOpen ? <FaAngleLeft cursor="pointer" onClick={() => {
+                            setIsOpen(false);
+                        }} /> : <FaAngleRight cursor="pointer" onClick={() => {
+                            setIsOpen(true)
+                        }} /> }
+                    </div>
+                    <ThemeSelector />
+                    <PageSizeSelector />
                 </div>
-                <ThemeSelector />
-                <PageSizeSelector />
+            </div>
+            <div {...stylex.props(styles.outside)}>
+            {children}
             </div>
         </div>
-        <div {...stylex.props(styles.outside)}>
-            {children}
-        </div>
-    </div>
+    ) : children
   )
 }
 

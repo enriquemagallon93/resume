@@ -1,7 +1,7 @@
-import { useRef } from "react";
+// import { useRef } from "react";
 import useSettings from "../Settings/useSettings";
 import * as stylex from '@stylexjs/stylex';
-import { PageSize } from "./types";
+// import { PageSize } from "./types";
 import { A4, LETTER } from "./constants";
 
 const styles = stylex.create({
@@ -42,13 +42,13 @@ const PageSizeSelector = () => {
         height,
         setHeight,
         horizontalMargin,
-        setHorizontalMargin,
+        // setHorizontalMargin,
         verticalMargin,
-        setVerticalMargin,
+        // setVerticalMargin,
         isCustomWidth,
         isCustomHeight,
-        isCustomHorizontalMargin,
-        isCustomVerticalMargin
+        // isCustomHorizontalMargin,
+        // isCustomVerticalMargin
     } = useSettings();
 
   return (
