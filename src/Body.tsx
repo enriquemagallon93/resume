@@ -1,5 +1,5 @@
-import NodesParser from './NodesParser'
-import resume from './resume.json'
+import NodesParser from './NodesParser';
+import resume from './resume.json';
 import * as stylex from '@stylexjs/stylex';
 import { colors } from './themes/palette.stylex';
 
@@ -39,14 +39,14 @@ const styles = stylex.create({
       textDecoration: 'underline'
     }
   }
-})
+});
 
 const Body = () => {
   return (
     <div {...stylex.props(styles.body)}>
       <NodesParser tree={resume.body} />
     </div>
-  )
-}
+  );
+};
 
-export default Body
+export default Body;

@@ -1,7 +1,7 @@
 const PageSplitter = () => {
   return (
     <div>PageSplitter</div>
-  )
-}
+  );
+};
 
-export default PageSplitter
+export default PageSplitter;

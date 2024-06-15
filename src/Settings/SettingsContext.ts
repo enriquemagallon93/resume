@@ -41,4 +41,4 @@ export const SettingsContext = createContext<SettingsContextProps>({
   verticalMargin: A4.verticalMargin,
   setVerticalMargin: () => {},
   isCustomVerticalMargin: false,
-})
+});

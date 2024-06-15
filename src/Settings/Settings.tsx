@@ -1,5 +1,5 @@
-import { type ReactNode, useState } from "react"
-import { SettingsContext, type UnitOrCustom, type SettingsContextProps } from "./SettingsContext"
+import { type ReactNode, useState } from "react";
+import { SettingsContext, type UnitOrCustom, type SettingsContextProps } from "./SettingsContext";
 import LeftPanel from "./LeftPanel";
 import { A4 } from "../Pages/constants";
 import { PageSize } from "../Pages/types";
@@ -9,13 +9,13 @@ const getUnitInfo = (unit: string) => {
     return {
       unit: unit.replace('custom-', '') as PageSize['horizontalMargin'],
       isCustom: true
-    }
+    };
   }
   return {
     unit: unit as PageSize['horizontalMargin'],
     isCustom: false
-  }
-}
+  };
+};
 
 const Settings = ({ children }: { children: ReactNode }) => {
   const [mode, setMode] = useState<SettingsContextProps['mode']>('light');
@@ -37,28 +37,28 @@ const Settings = ({ children }: { children: ReactNode }) => {
       setThemeName,
       width,
       setWidth: (width: UnitOrCustom<PageSize['width']>) => {
-        const { unit, isCustom } = getUnitInfo(width)
+        const { unit, isCustom } = getUnitInfo(width);
         setIsCustomWidth(isCustom);
         setWidth(unit);
       },
       isCustomWidth,
       height,
       setHeight: (height: UnitOrCustom<PageSize['height']>) => {
-        const { unit, isCustom } = getUnitInfo(height)
+        const { unit, isCustom } = getUnitInfo(height);
         setIsCustomHeight(isCustom);
         setHeight(unit);
       },
       isCustomHeight,
       horizontalMargin,
       setHorizontalMargin: (horizontalMargin: UnitOrCustom<PageSize['horizontalMargin']>) => {
-        const { unit, isCustom } = getUnitInfo(horizontalMargin)
+        const { unit, isCustom } = getUnitInfo(horizontalMargin);
         setIsCustomHorizontalMargin(isCustom);
         setHorizontalMargin(unit);
       },
       isCustomHorizontalMargin,
       verticalMargin,
       setVerticalMargin: (verticalMargin: UnitOrCustom<PageSize['verticalMargin']>) => {
-        const { unit, isCustom } = getUnitInfo(verticalMargin)
+        const { unit, isCustom } = getUnitInfo(verticalMargin);
         setIsCustomVerticalMargin(isCustom);
         setVerticalMargin(unit);
       },
@@ -68,7 +68,7 @@ const Settings = ({ children }: { children: ReactNode }) => {
         {children}
       </LeftPanel>
     </SettingsContext.Provider>
-  )
-}
+  );
+};
 
-export default Settings
+export default Settings;

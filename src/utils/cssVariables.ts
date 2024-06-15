@@ -6,7 +6,7 @@ import * as stylex from '@stylexjs/stylex';
  */
 export const getCssVarName = (cssVar: string): string => {
   return cssVar.match(/var\(([^)]+)\)/i)?.[1] || '';
-}
+};
 
 /**
  * Stylex Css vars are both, created with dynamic unknown names and not editable at runtime
@@ -30,13 +30,13 @@ export const styleStylexCssVars =
         alias: string,
         value?: StylexCssVarValue
     }}).reduce((previousAliasses, [cssVar, {alias, newValueForCssVar}]) => {
-      const aliasVar = `--${alias}`
+      const aliasVar = `--${alias}`;
       const stylexCssVar = stylexCssVars[cssVar as StylexCssVarKey];
       const stylexCssVarName = getCssVarName(stylexCssVar);
       return {
         ...previousAliasses,
         [aliasVar]: newValueForCssVar,
         [stylexCssVarName]: `var(${aliasVar})`
-      }
-    }, {} as Record<string, unknown>)
-}
+      };
+    }, {} as Record<string, unknown>);
+};

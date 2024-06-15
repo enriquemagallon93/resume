@@ -14,7 +14,7 @@ const Resume = () => {
         <Body />
       </Pages>
     </Settings>
-  )
-}
+  );
+};
 
-export default Resume
+export default Resume;

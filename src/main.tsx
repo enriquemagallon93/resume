@@ -1,10 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { ViteReactSSG } from 'vite-react-ssg/single-page'
-import Resume from './Resume.tsx'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { ViteReactSSG } from 'vite-react-ssg/single-page';
+import Resume from './Resume.tsx';
 
-import './reset.css'
-import './index.css'
+import './reset.css';
+import './index.css';
 
 const mode = import.meta.env.MODE;
 
@@ -21,7 +21,7 @@ if (mode === 'development') {
     <React.StrictMode>
       <Resume />
     </React.StrictMode>,
-  )
+  );
 }
 
 export const createRoot = root;

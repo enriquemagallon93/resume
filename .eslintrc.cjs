@@ -16,6 +16,7 @@ module.exports = {
     ],
     '@stylistic/js/indent': ["error", 2],
     '@stylistic/js/eol-last': ["error", "always"],
-    '@typescript-eslint/no-explicit-any': 'off'
+    '@stylistic/js/semi': ["error", "always"],
+    '@typescript-eslint/no-explicit-any': 'off',
   },
 }

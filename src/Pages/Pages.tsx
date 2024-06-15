@@ -27,15 +27,15 @@ const Pages= ({ children }: { children: ReactNode }) => {
 
   useLayoutEffect(() => {
     setIsServerSide(false);
-  },[])
+  },[]);
 
   useLayoutEffect(() => {
     setIsReady(false);
     setPages([]);
-  }, [children, width, height, horizontalMargin, verticalMargin])
+  }, [children, width, height, horizontalMargin, verticalMargin]);
 
   useLayoutEffect(() => {
-    if (isReady) return
+    if (isReady) return;
     const fullPage = originalPage.current;
 
     if (!fullPage) return;
@@ -45,24 +45,24 @@ const Pages= ({ children }: { children: ReactNode }) => {
       const { cloneFromPathToLimit } = getCloningFunctions(fullPage);
 
       const pageElements = pathsToSplit.map((path, index) => {
-        return cloneFromPathToLimit(path, pathsToSplit[index + 1]).outerHTML
-      })
+        return cloneFromPathToLimit(path, pathsToSplit[index + 1]).outerHTML;
+      });
 
       setPages(pageElements);
-      setIsReady(true)
+      setIsReady(true);
 
     }, 100);
 
     return () => {
       clearTimeout(delayToCalculatePages);
-    }
+    };
   }, [isReady]);
 
   return (
     <Theme>
       {isReady ? (
         pages.map((page, index) => {
-          return <div key={index} dangerouslySetInnerHTML={{ __html: page }} />
+          return <div key={index} dangerouslySetInnerHTML={{ __html: page }} />;
         })
       ) : (
         <div >
@@ -77,7 +77,7 @@ const Pages= ({ children }: { children: ReactNode }) => {
         </div>
       )}
     </Theme>
-  )
-}
+  );
+};
 
-export default Pages
+export default Pages;

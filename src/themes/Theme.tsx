@@ -8,7 +8,7 @@ const Theme = ({ children }: { children: ReactNode }) => {
 
   return (
     <div {...stylex.props(mode === 'light' ? themes[themeName] : darkThemes[themeName])} >{children}</div>
-  )
-}
+  );
+};
 
-export default Theme
+export default Theme;

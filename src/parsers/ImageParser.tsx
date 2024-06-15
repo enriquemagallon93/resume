@@ -12,21 +12,21 @@ type ImageNode = TreeNode & {
 }
 
 const isAnImageNode = (node: any): node is ImageNode  => 
-  node.type === IMAGE_NODE_TYPE && typeof node.source === "string" && typeof node.title === 'string' && (typeof node.props === 'object' || typeof node.props === 'undefined')
+  node.type === IMAGE_NODE_TYPE && typeof node.source === "string" && typeof node.title === 'string' && (typeof node.props === 'object' || typeof node.props === 'undefined');
 
 const ImageParser = (node: MaybeTree) => {
 
   if (!isAnImageNode(node)) {
     const imageNodeError = new Error('The provided node is not an ImageNode');
 
-    imageNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`
+    imageNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`;
 
     throw imageNodeError;
   }
 
   const { props, title, source } = node;
 
-  return <img {...props} title={title} src={source} />
-}
+  return <img {...props} title={title} src={source} />;
+};
 
-export default ImageParser
+export default ImageParser;

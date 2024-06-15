@@ -67,7 +67,7 @@ const PageSizeSelector = () => {
           <>
             <br />
             <input name="custom-width" type="number" value={(width + '').replace(/(cm|mm|in|px|pt|pc|%)$/, '')} onChange={({ target: { value }}) => {
-              setWidth(`custom-${value}${(width + '').replace(/.*(?=(cm|mm|in|px|pt|pc|%))/, '')}` as any)
+              setWidth(`custom-${value}${(width + '').replace(/.*(?=(cm|mm|in|px|pt|pc|%))/, '')}` as any);
             }} />
             <select name="custom-width-units" value={(width + '').replace(/.*(?=(cm|mm|in|px|pt|pc|%))/, '')} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
               setWidth((`custom-${(width + '').replace(/(cm|mm|in|px|pt|pc|%)$/, '')}${value}`) as any );
@@ -97,7 +97,7 @@ const PageSizeSelector = () => {
           <>
             <br />
             <input name="custom-height" type="number" value={(height + '').replace(/(cm|mm|in|px|pt|pc|%)$/, '')} onChange={({ target: { value }}) => {
-              setHeight(`custom-${value}${(height + '').replace(/.*(?=(cm|mm|in|px|pt|pc|%))/, '')}` as any)
+              setHeight(`custom-${value}${(height + '').replace(/.*(?=(cm|mm|in|px|pt|pc|%))/, '')}` as any);
             }} />
             <select name="custom-height-units" value={(height + '').replace(/.*(?=(cm|mm|in|px|pt|pc|%))/, '')} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
               setHeight((`custom-${(height + '').replace(/(cm|mm|in|px|pt|pc|%)$/, '')}${value}`) as any );
@@ -123,7 +123,7 @@ const PageSizeSelector = () => {
         {verticalMargin}
       </div>
     </fieldset>
-  )
-}
+  );
+};
 
-export default PageSizeSelector
+export default PageSizeSelector;

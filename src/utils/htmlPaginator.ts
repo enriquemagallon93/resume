@@ -5,43 +5,43 @@ const getY1FromElement = (reference: Element, target: Element) => {
   const tar = target.getBoundingClientRect();
 
   return tar.top - ref.top;
-}
+};
 
 const getPageFunctions = (originalPage: Element) => {
   const {paddingTop, paddingBottom,} = getComputedStyle(originalPage);
   const {offsetHeight} = (originalPage as HTMLElement);
 
-  const paddingTopN = fromPixelsString(paddingTop)
+  const paddingTopN = fromPixelsString(paddingTop);
 
   const pageAvailableHeight = offsetHeight - paddingTopN - fromPixelsString(paddingBottom);
 
   const getLastPageNumber = (element: Element): number => {
-    const { offsetHeight: childHeight } = element as HTMLElement
+    const { offsetHeight: childHeight } = element as HTMLElement;
     
-    const y1 = getY1FromElement(originalPage, element) - paddingTopN
+    const y1 = getY1FromElement(originalPage, element) - paddingTopN;
     const y2 = y1 + childHeight;
 
     const lastPageNumber = Math.floor(y2 / pageAvailableHeight) + 1;
 
     return lastPageNumber;
-  }
+  };
 
   const fitInPage = (element: Element, pageNumber: number): boolean => {
-    const lastPageNumber = getLastPageNumber(element)
+    const lastPageNumber = getLastPageNumber(element);
 
-    return lastPageNumber === pageNumber
-  }
+    return lastPageNumber === pageNumber;
+  };
 
-  const removeEmptyPaths = (path: number[]) => path.join(',').replace(/(,0)+$/g, '').split(',').map(number => Number.parseInt(number))
+  const removeEmptyPaths = (path: number[]) => path.join(',').replace(/(,0)+$/g, '').split(',').map(number => Number.parseInt(number));
 
   return {
     fitInPage,
     getLastPageNumber,
     removeEmptyPaths
   };
-}
+};
 
-const excludedNodes = new Set(['BR'])
+const excludedNodes = new Set(['BR']);
 
 export const getPathsToSplit = (originalPage: Element ): number[][] => {
   const { fitInPage, getLastPageNumber, removeEmptyPaths } = getPageFunctions(originalPage);
@@ -66,13 +66,13 @@ export const getPathsToSplit = (originalPage: Element ): number[][] => {
     Array.from(currentNode.children).every((child, index) => {
       iterateNodes(child, ...path, index);
       return pageNumber < numberOfPages;
-    })
-  }
+    });
+  };
 
   iterateNodes(originalPage);
 
   return pathsToSplit;
-}
+};
 
 export const getCloningFunctions = (originalPage: Element) => {
 
@@ -100,10 +100,10 @@ export const getCloningFunctions = (originalPage: Element) => {
           continue;
         }
         newLimit = [];
-        newPath = [...initialPath]                
+        newPath = [...initialPath];                
       } else if (i === initialIndex && i === limitIndex) {
         newLimit = [...limit];
-        newPath = [...initialPath]
+        newPath = [...initialPath];
       } else if (i === limitIndex && i !== initialIndex) {
         if (limit.length === 0) {
           break;
@@ -122,15 +122,15 @@ export const getCloningFunctions = (originalPage: Element) => {
       cloneFromPathToLimit( newCurrentOriginalNode, newCurrentClonedNode, newPath, newLimit );
     }
     return currentClonedNode;
-  }
+  };
 
   const clone = (initialPath: number[], limit = [] as number[]) => {
-    const result = cloneFromPathToLimit(originalPage, originalPage.cloneNode() as Element, initialPath, limit)
+    const result = cloneFromPathToLimit(originalPage, originalPage.cloneNode() as Element, initialPath, limit);
 
     return result;
-  }
+  };
 
   return {
     cloneFromPathToLimit: clone
-  }
-}
+  };
+};

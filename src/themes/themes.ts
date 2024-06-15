@@ -1,7 +1,7 @@
-import { dark } from './darkPalette'
+import { dark } from './darkPalette';
 import { dracula, darkDracula } from './dracula';
 
-import {type Theme } from '@stylexjs/stylex'
+import {type Theme } from '@stylexjs/stylex';
 
 export const themes = {
   default: null,

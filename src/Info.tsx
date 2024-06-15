@@ -1,6 +1,6 @@
 import NodesParser from './NodesParser';
 
-import resume from './resume.json'
+import resume from './resume.json';
 
 import * as stylex from '@stylexjs/stylex';
 
@@ -38,12 +38,12 @@ const styles = stylex.create({
 });
 
 const Info = () => {
-  const {className, style} = stylex.props(styles.mainInfo)
+  const {className, style} = stylex.props(styles.mainInfo);
   return (
     <div className={`main-info ${className}`} style={style}>
       <NodesParser tree={resume.info} />
     </div>
-  )
-}
+  );
+};
 
-export default Info
+export default Info;

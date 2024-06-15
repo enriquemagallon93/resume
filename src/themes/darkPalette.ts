@@ -14,5 +14,5 @@ export const dark = stylex.createTheme(colors, {
   pageColor: "#a9a49b",
   pageHightlight: "#687979",
   hyper: "#4B5D7C"
-})
+});
 

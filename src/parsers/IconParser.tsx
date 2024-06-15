@@ -1,7 +1,7 @@
-import { IconBaseProps, type IconType } from 'react-icons'
-import { MdRocketLaunch } from 'react-icons/md'
+import { IconBaseProps, type IconType } from 'react-icons';
+import { MdRocketLaunch } from 'react-icons/md';
 import { MaybeTree, TreeNode } from '../NodesParser';
-import { MdEmail, MdOutlinePhoneAndroid, MdLocationPin } from 'react-icons/md'
+import { MdEmail, MdOutlinePhoneAndroid, MdLocationPin } from 'react-icons/md';
 import { IoLogoLinkedin } from "react-icons/io";
 import { FaLanguage } from "react-icons/fa6";
 import { FaReact, FaNodeJs, FaSass, FaHtml5, FaCss3, FaTerminal } from "react-icons/fa";
@@ -31,7 +31,7 @@ const icons: { [key in string]?: IconType } = {
   styledComponents: SiStyledcomponents,
   redux: SiRedux,
   rubyOnRails: SiRubyonrails
-}
+};
 
 type IconNode = TreeNode & {
     type: typeof ICON_NODE_TYPE,
@@ -41,14 +41,14 @@ type IconNode = TreeNode & {
 }
 
 const isIconNode = (node: any): node is IconNode  => 
-  node.type === ICON_NODE_TYPE && typeof node.name === 'string' && (typeof node.props === 'object' || typeof node.props === 'undefined')
+  node.type === ICON_NODE_TYPE && typeof node.name === 'string' && (typeof node.props === 'object' || typeof node.props === 'undefined');
 
 const IconParser = (node: MaybeTree) => {
 
   if (!isIconNode(node)) {
     const iconNodeError = new Error('The provided node is not an IconNode');
 
-    iconNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`
+    iconNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`;
 
     throw iconNodeError;
   }
@@ -58,6 +58,6 @@ const IconParser = (node: MaybeTree) => {
   if (!Icon) return <></>;
 
   return <Icon className='Parsed_Icon' {...node.props} />;
-}
+};
 
-export default IconParser
+export default IconParser;

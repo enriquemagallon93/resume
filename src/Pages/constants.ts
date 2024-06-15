@@ -14,4 +14,4 @@ export const LETTER: PageSize = {
   height: "27.94cm",
   horizontalMargin: 30,
   verticalMargin: 20
-}
+};
