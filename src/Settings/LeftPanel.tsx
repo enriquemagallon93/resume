@@ -52,12 +52,12 @@ const styles = stylex.create({
 
 const LeftPanel = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showPanel, setShowPanel] = useState(false)
+  const [showPanel, setShowPanel] = useState(false);
 
   useLayoutEffect(() => {
     setShowPanel(true);
     setIsOpen(true);
-  }, [])
+  }, []);
   return (
     showPanel ? (
       <div {...stylex.props(styles.container)}>
@@ -68,7 +68,7 @@ const LeftPanel = ({ children }: { children: ReactNode }) => {
               {isOpen ? <FaAngleLeft cursor="pointer" onClick={() => {
                 setIsOpen(false);
               }} /> : <FaAngleRight cursor="pointer" onClick={() => {
-                setIsOpen(true)
+                setIsOpen(true);
               }} /> }
             </div>
             <ThemeSelector />
@@ -80,7 +80,7 @@ const LeftPanel = ({ children }: { children: ReactNode }) => {
         </div>
       </div>
     ) : children
-  )
-}
+  );
+};
 
-export default LeftPanel
+export default LeftPanel;

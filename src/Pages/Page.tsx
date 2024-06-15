@@ -4,7 +4,7 @@ import * as stylex from '@stylexjs/stylex';
 import { PageSize } from './types';
 
 import type {StyleXStyles} from '@stylexjs/stylex';
-import { size } from './page.stylex'
+import { size } from './page.stylex';
 import { styleStylexCssVars } from '../utils/cssVariables';
 import { colors } from '../themes/palette.stylex';
 
@@ -44,13 +44,13 @@ const styles = stylex.create({
       boxShadow: 'none',
     }
   }
-})
+});
 
 export type PageProps = PageSize & { children: ReactNode; style?: StyleXStyles; }
 
 
 
-const sanitizeUnits = <T,>(unit: T | number) => typeof unit === 'number' ? `${unit}px` as const : unit 
+const sanitizeUnits = <T,>(unit: T | number) => typeof unit === 'number' ? `${unit}px` as const : unit; 
 
 const Page = forwardRef(
   function Page(
@@ -85,7 +85,7 @@ const Page = forwardRef(
         }
       }
     );
-    const { className, style } = stylex.props(styles.page, parentStyles)
+    const { className, style } = stylex.props(styles.page, parentStyles);
     return (
       <div ref={ref} className={`page ${className}`} style={{
         ...style,
@@ -93,8 +93,8 @@ const Page = forwardRef(
       }} >
         {children}
       </div>
-    )
+    );
   }
-)
+);
 
-export default Page
+export default Page;

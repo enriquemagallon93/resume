@@ -17,7 +17,7 @@ const isATree = (maybeTree: any): maybeTree is Tree => {
   if (Array.isArray(maybeTree)) return true;
 
   return typeof maybeTree.type === 'string';
-}
+};
 
 const NodesParser = ({ tree }: { tree: MaybeTree }) => {
 
@@ -38,7 +38,7 @@ const NodesParser = ({ tree }: { tree: MaybeTree }) => {
           <NodesParser key={index} tree={node} />
         )}
       </>
-    )
+    );
   }
 
   const Parser = Parsers[tree.type];
@@ -51,7 +51,7 @@ const NodesParser = ({ tree }: { tree: MaybeTree }) => {
     throw noParserError;
   }
 
-  return <Parser {...tree} />
-}
+  return <Parser {...tree} />;
+};
 
-export default NodesParser
+export default NodesParser;

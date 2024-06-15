@@ -13,7 +13,7 @@ export const dracula = stylex.createTheme(colors, {
   pageBackground: "#ecf7f3",
   pageColor: "#483422",
   pageHightlight: "#ff5555"
-})
+});
 
 export const darkDracula = stylex.createTheme(colors, {
   primaryBackground: "#1a1a18",
@@ -27,5 +27,5 @@ export const darkDracula = stylex.createTheme(colors, {
   pageHightlight: "#86544f",
   pageColor: "#978C7F",
   hyper: "#4B5D7C"
-})
+});
 

@@ -16,7 +16,7 @@ const mergeStyles = (
   props: HeadingNode['props'],
   number: 1 | 2 | 3 | 4 | 5 | 6
 ): HeadingNode['props'] => {
-  const { style, className } = stylex.props(headingStyles[number] || null)
+  const { style, className } = stylex.props(headingStyles[number] || null);
 
   return {
     ...props,
@@ -25,8 +25,8 @@ const mergeStyles = (
       ...style,
     },
     className: `${className} ${props?.className || ''}`
-  }
-}
+  };
+};
 
 const Headings: { [key in string]?: (props: HeadingNode['props']) => JSX.Element } = {
   1: (props) => <h1 {...mergeStyles(props, 1)} />,
@@ -35,30 +35,30 @@ const Headings: { [key in string]?: (props: HeadingNode['props']) => JSX.Element
   4: (props) => <h4 {...mergeStyles(props, 4)} />,
   5: (props) => <h5 {...mergeStyles(props, 5)} />,
   6: (props) => <h6 {...mergeStyles(props, 6)} />
-}
+};
 
 const isAHeadingNode = (node: any): node is HeadingNode  => 
-  node.type === HEADING_NODE_TYPE && (typeof node.props === 'object' || typeof node.props === 'undefined') && typeof node.number === 'number'
+  node.type === HEADING_NODE_TYPE && (typeof node.props === 'object' || typeof node.props === 'undefined') && typeof node.number === 'number';
 
 const HeadingParser = (node: MaybeTree) => {
 
   if (!isAHeadingNode(node)) {
     const headingNodeError = new Error('The provided node is not a HeadingNode');
 
-    headingNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`
+    headingNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`;
 
     throw headingNodeError;
   }
 
   const { children, props, number } = node;
 
-  const Heading = Headings[`${number}`]
+  const Heading = Headings[`${number}`];
 
   if (!Heading) return null;
 
   return <Heading {...props}>
     {children ? <NodesParser tree={children} /> : ''}
-  </Heading>
-}
+  </Heading>;
+};
 
-export default HeadingParser
+export default HeadingParser;

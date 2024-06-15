@@ -22,14 +22,14 @@ const isATextNode = (node: any): node is TextNode =>
     && isBooleanOfUndefined(node.bold)
     && isBooleanOfUndefined(node.italic)
     && isBooleanOfUndefined(node.underlined)
-    && isBooleanOfUndefined(node.code)
+    && isBooleanOfUndefined(node.code);
 
 const TextParser = (node: MaybeTree) => {
 
   if (!isATextNode(node)) {
     const textNodeError = new Error('The provided node is not a TextNode');
 
-    textNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`
+    textNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`;
 
     throw textNodeError;
   }
@@ -49,7 +49,7 @@ const TextParser = (node: MaybeTree) => {
       <i>
         <TextParser type={type} children={children} bold={bold} code={code} />
       </i>
-    )
+    );
   }
 
   if (code) {
@@ -57,7 +57,7 @@ const TextParser = (node: MaybeTree) => {
       <code>
         <TextParser type={type} children={children} bold={bold} />
       </code>
-    )
+    );
   }
 
   if (bold) {
@@ -65,12 +65,12 @@ const TextParser = (node: MaybeTree) => {
       <b>
         <TextParser type={type} children={children} />
       </b>
-    )
+    );
   }
 
   return <span {...props}>
     {children ? <NodesParser tree={children} /> : ''}
-  </span>
-}
+  </span>;
+};
 
-export default TextParser
+export default TextParser;

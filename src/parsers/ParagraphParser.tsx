@@ -10,14 +10,14 @@ type ParagraphNode = TreeNode & {
 }
 
 const isAParagraphNode = (node: any): node is ParagraphNode  => 
-  node.type === PARAGRAPH_NODE_TYPE && (typeof node.props === 'object' || typeof node.props === 'undefined')
+  node.type === PARAGRAPH_NODE_TYPE && (typeof node.props === 'object' || typeof node.props === 'undefined');
 
 const ParagraphParser = (node: MaybeTree) => {
 
   if (!isAParagraphNode(node)) {
     const paragraphNodeError = new Error('The provided node is not a Paragraph');
 
-    paragraphNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`
+    paragraphNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`;
 
     throw paragraphNodeError;
   }
@@ -26,7 +26,7 @@ const ParagraphParser = (node: MaybeTree) => {
 
   return <p {...props}>
     {children ? <NodesParser tree={children} /> : ''}
-  </p>
-}
+  </p>;
+};
 
-export default ParagraphParser
+export default ParagraphParser;

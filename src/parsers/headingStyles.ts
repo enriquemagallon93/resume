@@ -16,4 +16,4 @@ export const headingStyles = stylex.create({
   4: {},
   5: {},
   6: {}
-})
+});

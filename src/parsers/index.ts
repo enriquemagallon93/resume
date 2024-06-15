@@ -17,4 +17,4 @@ export default {
   [PARAGRAPH_NODE_TYPE]: ParagraphParser,
   [BULLETED_LIST_NODE_TYPE]: BulletedListParser,
   [IMAGE_NODE_TYPE]: ImageParser
-} as { [key in string]?: (props: TreeNode) => JSX.Element }
+} as { [key in string]?: (props: TreeNode) => JSX.Element };

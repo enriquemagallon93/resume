@@ -11,14 +11,14 @@ type LinkNode = TreeNode & {
 }
 
 const isLinkNode = (node: any): node is LinkNode  => 
-  node.type === LINK_NODE_TYPE && (typeof node.props === 'object' || typeof node.props === 'undefined') && typeof node.to === 'string'
+  node.type === LINK_NODE_TYPE && (typeof node.props === 'object' || typeof node.props === 'undefined') && typeof node.to === 'string';
 
 const LinkParser = (node: MaybeTree) => {
 
   if (!isLinkNode(node)) {
     const linkNodeError = new Error('The provided node is not a LinkNode');
 
-    linkNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`
+    linkNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`;
 
     throw linkNodeError;
   }
@@ -27,7 +27,7 @@ const LinkParser = (node: MaybeTree) => {
 
   return <a {...props} href={to}>
     {children ? <NodesParser tree={children} /> : ''}
-  </a>
-}
+  </a>;
+};
 
-export default LinkParser
+export default LinkParser;

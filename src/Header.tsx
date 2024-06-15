@@ -1,5 +1,5 @@
-import resume from './resume.json'
-import NodesParser from './NodesParser'
+import resume from './resume.json';
+import NodesParser from './NodesParser';
 
 import * as stylex from '@stylexjs/stylex';
 
@@ -60,7 +60,7 @@ const Header = () => {
         <NodesParser tree={resume.photo} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -51,14 +51,14 @@ const ThemeSelector = () => {
       <div>
         <label {...stylex.props(styles.label)} htmlFor="theme"> Theme: </label>
         <select name="theme" value={themeName} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
-          setThemeName(value as ThemeName)
+          setThemeName(value as ThemeName);
         }}>
           <option {...stylex.props(styles.option)} value="default">Default</option>
           <option {...stylex.props(styles.option)} value="dracula">Dracula</option>
         </select>
       </div>
     </fieldset>
-  )
-}
+  );
+};
 
-export default ThemeSelector
+export default ThemeSelector;
