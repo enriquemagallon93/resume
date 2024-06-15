@@ -5,7 +5,6 @@ import styleX from "vite-plugin-stylex"
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
 
-  // @ts-ignore
   const env = { ...process.env, ...loadEnv(mode, process.cwd()) }
 
   return {

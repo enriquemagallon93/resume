@@ -9,12 +9,12 @@ import ParagraphParser, { PARAGRAPH_NODE_TYPE } from './ParagraphParser';
 import TextParser, { TEXT_NODE_TYPE } from './TextParser';
 
 export default {
-    [ICON_NODE_TYPE]: IconParser,
-    [LINK_NODE_TYPE]: LinkParser,
-    [BLOCK_NODE_TYPE]: BlockParser,
-    [TEXT_NODE_TYPE]: TextParser,
-    [HEADING_NODE_TYPE]: HeadingParser,
-    [PARAGRAPH_NODE_TYPE]: ParagraphParser,
-    [BULLETED_LIST_NODE_TYPE]: BulletedListParser,
-    [IMAGE_NODE_TYPE]: ImageParser
+  [ICON_NODE_TYPE]: IconParser,
+  [LINK_NODE_TYPE]: LinkParser,
+  [BLOCK_NODE_TYPE]: BlockParser,
+  [TEXT_NODE_TYPE]: TextParser,
+  [HEADING_NODE_TYPE]: HeadingParser,
+  [PARAGRAPH_NODE_TYPE]: ParagraphParser,
+  [BULLETED_LIST_NODE_TYPE]: BulletedListParser,
+  [IMAGE_NODE_TYPE]: ImageParser
 } as { [key in string]?: (props: TreeNode) => JSX.Element }

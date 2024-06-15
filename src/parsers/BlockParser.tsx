@@ -10,23 +10,23 @@ type BlockNode = TreeNode & {
 }
 
 const isABlockNode = (node: any): node is BlockNode  => 
-    node.type === BLOCK_NODE_TYPE && (typeof node.props === 'object' || typeof node.props === 'undefined')
+  node.type === BLOCK_NODE_TYPE && (typeof node.props === 'object' || typeof node.props === 'undefined')
 
 const BlockParser = (node: MaybeTree) => {
 
-    if (!isABlockNode(node)) {
-        const blockNodeError = new Error('The provided node is not a BlockNode');
+  if (!isABlockNode(node)) {
+    const blockNodeError = new Error('The provided node is not a BlockNode');
 
-        blockNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`
+    blockNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`
 
-        throw blockNodeError;
-    }
+    throw blockNodeError;
+  }
 
-    const { children, props, } = node;
+  const { children, props, } = node;
 
-    return <div {...props}>
-        {children ? <NodesParser tree={children} /> : ''}
-    </div>
+  return <div {...props}>
+    {children ? <NodesParser tree={children} /> : ''}
+  </div>
 }
 
 export default BlockParser

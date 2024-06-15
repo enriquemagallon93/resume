@@ -10,27 +10,27 @@ type BulletedListNode = TreeNode & {
 }
 
 const isABulletedListNode = (node: any): node is BulletedListNode  => 
-    node.type === BULLETED_LIST_NODE_TYPE && Array.isArray(node.children) && (typeof node.props === 'object' || typeof node.props === 'undefined')
+  node.type === BULLETED_LIST_NODE_TYPE && Array.isArray(node.children) && (typeof node.props === 'object' || typeof node.props === 'undefined')
 
 const BulletedListParser = (node: MaybeTree) => {
 
-    if (!isABulletedListNode(node)) {
-        const paragraphNodeError = new Error('The provided node is not a BulletedList');
+  if (!isABulletedListNode(node)) {
+    const paragraphNodeError = new Error('The provided node is not a BulletedList');
 
-        paragraphNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`
+    paragraphNodeError.stack = `Provided node: ${JSON.stringify(node, undefined, 2)}`
 
-        throw paragraphNodeError;
-    }
+    throw paragraphNodeError;
+  }
 
-    const { children, props, } = node;
+  const { children, props, } = node;
 
-    return <ul {...props}>
-        {children.map((child, index) => (
-            <li key={index}>
-                <NodesParser tree={child} />
-            </li>
-        ))}
-    </ul>
+  return <ul {...props}>
+    {children.map((child, index) => (
+      <li key={index}>
+        <NodesParser tree={child} />
+      </li>
+    ))}
+  </ul>
 }
 
 export default BulletedListParser

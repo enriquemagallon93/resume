@@ -5,7 +5,7 @@ import * as stylex from '@stylexjs/stylex';
  * @returns the unwrappep name of the css var. I.e. `"--x"` or `""` if a wrapped css var was not found
  */
 export const getCssVarName = (cssVar: string): string => {
-    return cssVar.match(/var\(([^)]+)\)/i)?.[1] || '';
+  return cssVar.match(/var\(([^)]+)\)/i)?.[1] || '';
 }
 
 /**
@@ -30,13 +30,13 @@ export const styleStylexCssVars =
         alias: string,
         value?: StylexCssVarValue
     }}).reduce((previousAliasses, [cssVar, {alias, newValueForCssVar}]) => {
-        const aliasVar = `--${alias}`
-        const stylexCssVar = stylexCssVars[cssVar as StylexCssVarKey];
-        const stylexCssVarName = getCssVarName(stylexCssVar);
-        return {
-            ...previousAliasses,
-            [aliasVar]: newValueForCssVar,
-            [stylexCssVarName]: `var(${aliasVar})`
-        }
+      const aliasVar = `--${alias}`
+      const stylexCssVar = stylexCssVars[cssVar as StylexCssVarKey];
+      const stylexCssVarName = getCssVarName(stylexCssVar);
+      return {
+        ...previousAliasses,
+        [aliasVar]: newValueForCssVar,
+        [stylexCssVarName]: `var(${aliasVar})`
+      }
     }, {} as Record<string, unknown>)
 }
