@@ -1,142 +1,136 @@
 const fromPixelsString = (px: string): number => Math.round(Number.parseFloat(px) * 10000) / 10000;
 
 const getY1FromElement = (reference: Element, target: Element) => {
-    const ref = reference.getBoundingClientRect();
-    const tar = target.getBoundingClientRect();
+  const ref = reference.getBoundingClientRect();
+  const tar = target.getBoundingClientRect();
 
-    return tar.top - ref.top;
+  return tar.top - ref.top;
 }
 
 const getPageFunctions = (originalPage: Element) => {
-    const {paddingTop, paddingBottom,} = getComputedStyle(originalPage);
-    const {offsetHeight} = (originalPage as HTMLElement);
+  const {paddingTop, paddingBottom,} = getComputedStyle(originalPage);
+  const {offsetHeight} = (originalPage as HTMLElement);
 
-    const paddingTopN = fromPixelsString(paddingTop)
+  const paddingTopN = fromPixelsString(paddingTop)
 
-    const pageAvailableHeight = offsetHeight - paddingTopN - fromPixelsString(paddingBottom);
+  const pageAvailableHeight = offsetHeight - paddingTopN - fromPixelsString(paddingBottom);
 
-    const getLastPageNumber = (element: Element): number => {
-        const { offsetHeight: childHeight } = element as HTMLElement
+  const getLastPageNumber = (element: Element): number => {
+    const { offsetHeight: childHeight } = element as HTMLElement
     
-        const y1 = getY1FromElement(originalPage, element) - paddingTopN
-        const y2 = y1 + childHeight;
+    const y1 = getY1FromElement(originalPage, element) - paddingTopN
+    const y2 = y1 + childHeight;
 
-        const lastPageNumber = Math.floor(y2 / pageAvailableHeight) + 1;
+    const lastPageNumber = Math.floor(y2 / pageAvailableHeight) + 1;
 
-        return lastPageNumber;
-    }
+    return lastPageNumber;
+  }
 
-    const fitInPage = (element: Element, pageNumber: number): boolean => {
-        const lastPageNumber = getLastPageNumber(element)
+  const fitInPage = (element: Element, pageNumber: number): boolean => {
+    const lastPageNumber = getLastPageNumber(element)
 
-        return lastPageNumber === pageNumber
-    }
+    return lastPageNumber === pageNumber
+  }
 
-    const recursivelyFromPath = (currentElement: Element, [index, ...path]: number[]): Element => {
-        if (typeof index !== 'number') return currentElement;
-    
-        return recursivelyFromPath(currentElement.children[index], [...path])
-    }
+  const removeEmptyPaths = (path: number[]) => path.join(',').replace(/(,0)+$/g, '').split(',').map(number => Number.parseInt(number))
 
-    const removeEmptyPaths = (path: number[]) => path.join(',').replace(/(,0)+$/g, '').split(',').map(number => Number.parseInt(number))
-
-    return {
-        fitInPage,
-        getLastPageNumber,
-        removeEmptyPaths
-    };
+  return {
+    fitInPage,
+    getLastPageNumber,
+    removeEmptyPaths
+  };
 }
 
 const excludedNodes = new Set(['BR'])
 
 export const getPathsToSplit = (originalPage: Element ): number[][] => {
-    const { fitInPage, getLastPageNumber, removeEmptyPaths } = getPageFunctions(originalPage);
+  const { fitInPage, getLastPageNumber, removeEmptyPaths } = getPageFunctions(originalPage);
 
-    const numberOfPages = getLastPageNumber(originalPage);
+  const numberOfPages = getLastPageNumber(originalPage);
 
-    const pathsToSplit = [[]] as number[][];
-    let pageNumber = 1;
+  const pathsToSplit = [[]] as number[][];
+  let pageNumber = 1;
 
-    const iterateNodes = (currentNode: Element, ...path: number[]) => {
-        if (excludedNodes.has(currentNode.tagName.toUpperCase())) {
-            return;
-        }
-        if (fitInPage(currentNode, pageNumber)) {
-            return;
-        }
-        if (currentNode.children.length === 0) {
-            pathsToSplit.push(removeEmptyPaths([...path]));
-            pageNumber += 1;
-            return;
-        }
-        Array.from(currentNode.children).every((child, index) => {
-            iterateNodes(child, ...path, index);
-            return pageNumber < numberOfPages;
-        })
+  const iterateNodes = (currentNode: Element, ...path: number[]) => {
+    if (excludedNodes.has(currentNode.tagName.toUpperCase())) {
+      return;
     }
+    if (fitInPage(currentNode, pageNumber)) {
+      return;
+    }
+    if (currentNode.children.length === 0) {
+      pathsToSplit.push(removeEmptyPaths([...path]));
+      pageNumber += 1;
+      return;
+    }
+    Array.from(currentNode.children).every((child, index) => {
+      iterateNodes(child, ...path, index);
+      return pageNumber < numberOfPages;
+    })
+  }
 
-    iterateNodes(originalPage);
+  iterateNodes(originalPage);
 
-    return pathsToSplit;
+  return pathsToSplit;
 }
 
 export const getCloningFunctions = (originalPage: Element) => {
 
-    const cloneFromPathToLimit = (
-        currentOriginalNode: Element,
-        currentClonedNode: Element,
-        [initialIndex = 0, ...initialPath]: number[],
-        [endLimit = Infinity, ...limit]: number[],
-    ) => {
-        if (typeof initialIndex !== 'number') return currentClonedNode;
+  const cloneFromPathToLimit = (
+    currentOriginalNode: Element,
+    currentClonedNode: Element,
+    [initialIndex = 0, ...initialPath]: number[],
+    [endLimit = Infinity, ...limit]: number[],
+  ) => {
+    if (typeof initialIndex !== 'number') return currentClonedNode;
 
-        const limitIndex = Math.min(currentOriginalNode.children.length, endLimit);
+    const limitIndex = Math.min(currentOriginalNode.children.length, endLimit);
 
-        for (let i = initialIndex; i <= limitIndex; i ++) {
-            const nodeToClone = currentOriginalNode.children[i];
-            let newLimit: number[] = [];
-            let newPath: number[] = [];
-            if (!nodeToClone) {
-                break;
-            }
-            if (i === initialIndex && i !== limitIndex) {
-                if (initialPath.length === 0) {
-                    const deepClone = nodeToClone.cloneNode(true);
-                    currentClonedNode.appendChild(deepClone);
-                    continue;
-                }
-                newLimit = [];
-                newPath = [...initialPath]                
-            } else if (i === initialIndex && i === limitIndex) {
-                newLimit = [...limit];
-                newPath = [...initialPath]
-            } else if (i === limitIndex && i !== initialIndex) {
-                if (limit.length === 0) {
-                    break;
-                }
-                newPath = [];
-                newLimit = [...limit];
-            } else {
-                const deepClone = nodeToClone.cloneNode(true);
-                currentClonedNode.appendChild(deepClone);
-                continue;
-            }
-            const newCurrentOriginalNode = nodeToClone;
-            const newCurrentClonedNode = newCurrentOriginalNode.cloneNode() as Element;
-            currentClonedNode.appendChild(newCurrentClonedNode);
-
-            cloneFromPathToLimit( newCurrentOriginalNode, newCurrentClonedNode, newPath, newLimit );
+    for (let i = initialIndex; i <= limitIndex; i ++) {
+      const nodeToClone = currentOriginalNode.children[i];
+      let newLimit: number[] = [];
+      let newPath: number[] = [];
+      if (!nodeToClone) {
+        break;
+      }
+      if (i === initialIndex && i !== limitIndex) {
+        if (initialPath.length === 0) {
+          const deepClone = nodeToClone.cloneNode(true);
+          currentClonedNode.appendChild(deepClone);
+          continue;
         }
-        return currentClonedNode;
-    }
+        newLimit = [];
+        newPath = [...initialPath]                
+      } else if (i === initialIndex && i === limitIndex) {
+        newLimit = [...limit];
+        newPath = [...initialPath]
+      } else if (i === limitIndex && i !== initialIndex) {
+        if (limit.length === 0) {
+          break;
+        }
+        newPath = [];
+        newLimit = [...limit];
+      } else {
+        const deepClone = nodeToClone.cloneNode(true);
+        currentClonedNode.appendChild(deepClone);
+        continue;
+      }
+      const newCurrentOriginalNode = nodeToClone;
+      const newCurrentClonedNode = newCurrentOriginalNode.cloneNode() as Element;
+      currentClonedNode.appendChild(newCurrentClonedNode);
 
-    const clone = (initialPath: number[], limit = [] as number[]) => {
-        const result = cloneFromPathToLimit(originalPage, originalPage.cloneNode() as Element, initialPath, limit)
-
-        return result;
+      cloneFromPathToLimit( newCurrentOriginalNode, newCurrentClonedNode, newPath, newLimit );
     }
+    return currentClonedNode;
+  }
 
-    return {
-        cloneFromPathToLimit: clone
-    }
+  const clone = (initialPath: number[], limit = [] as number[]) => {
+    const result = cloneFromPathToLimit(originalPage, originalPage.cloneNode() as Element, initialPath, limit)
+
+    return result;
+  }
+
+  return {
+    cloneFromPathToLimit: clone
+  }
 }
