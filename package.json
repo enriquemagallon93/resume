@@ -6,6 +6,7 @@
   "type": "module",
   "main": "src/main.tsx",
   "scripts": {
+    "preinstall": "git config core.hooksPath './git-hooks'",
     "dev": "vite",
     "build": "tsc && vite-react-ssg build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
