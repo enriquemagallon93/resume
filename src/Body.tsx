@@ -8,7 +8,7 @@ const styles = stylex.create({
     marginTop: 20,
     display: 'flex',
     flexDirection: 'column',
-    gap: 8,
+    gap: 16,
     ":first-child": {
       marginTop: 0
     },
