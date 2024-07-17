@@ -8,17 +8,27 @@ const styles = stylex.create({
   container: {
     width: '100%',
     display: 'flex',
-    flexWrap: 'no-wrap'
+    flexWrap: 'no-wrap',
+    "@media print": {
+      display: 'block'
+    }
   },
   spacer: (isOpen: boolean) => ({
     maxWidth: isOpen ? 'min(100%, 300px)' : 48,
     width: '100%',
-    transition: 'max-width 150ms ease-in-out'
+    transition: 'max-width 150ms ease-in-out',
+    "@media print": {
+      display: 'none'
+    }
   }),
   outside: {
     flexGrow: 1,
     overflow: 'scroll',
     maxHeight: '100vh',
+    "@media print": {
+      maxHeight: 'auto',
+      overflow: 'unset'
+    }
   },
   panel: (isOpen: boolean) => ({
     position: 'fixed',
@@ -38,9 +48,6 @@ const styles = stylex.create({
     transform: isOpen ? 'none' : 'translate( calc( 48px - 100% ), 0 )',
     paddingRight: isOpen ? 16 : 48,
     transition: 'transform 150ms ease-in-out',
-    "@media print": {
-      display: 'none'
-    }
   }),
   header: (isOpen: boolean) => ({
     display: 'flex',
