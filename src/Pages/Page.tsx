@@ -38,8 +38,8 @@ const styles = stylex.create({
     lineHeight: '18px',
     position: 'relative',
     "@media print": {
-      width: size.pageWidth,
-      height: size.pageHeight,
+      width: '100%',
+      height: 'auto',
       margin: '0 !important',
       boxShadow: 'none',
     }
