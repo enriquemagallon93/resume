@@ -11,4 +11,4 @@ To run dev mode `bun dev`.
  - Use themes by implementing CSS Vars
  - The whole information is described in JSON as nodes
  - Page parse JSON nodes to react
- - React splist the content into pages by using the page config and the 
+ - React splits the content into pages by using the page config
