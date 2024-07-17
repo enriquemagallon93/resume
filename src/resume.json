@@ -724,5 +724,26 @@
                 }
             ]
         }
+    ],
+    "qrLinks": [
+        {
+            "type": "QR_LINK",
+            "title": "Resume Web Version",
+            "url": "https://enriquemagallon93.github.io/resume/"
+        },
+        {
+            "type":"QR_LINK",
+            "title": "Resume Github Repository",
+            "url": "https://github.com/enriquemagallon93/resume"
+        },
+        {
+            "type":"QR_LINK",
+            "title": "Github Profile",
+            "url": "https://github.com/enriquemagallon93"
+        }, {
+            "type": "QR_LINK",
+            "title": "Linkedin Profile",
+            "url": "https://www.linkedin.com/in/enrique-magall%C3%B3n-307045137/"
+        }
     ]
 }

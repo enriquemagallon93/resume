@@ -38,6 +38,12 @@ const styles = stylex.create({
     ":not(#___unused___) .url_link:hover": {
       textDecoration: 'underline'
     }
+  },
+  qrs: {
+    marginTop: 32,
+    display: 'flex',
+    gap: 32,
+    flexWrap: 'wrap',
   }
 });
 
@@ -45,6 +51,9 @@ const Body = () => {
   return (
     <div {...stylex.props(styles.body)}>
       <NodesParser tree={resume.body} />
+      <div {...stylex.props(styles.qrs)}>
+        <NodesParser tree={resume.qrLinks} />
+      </div>
     </div>
   );
 };

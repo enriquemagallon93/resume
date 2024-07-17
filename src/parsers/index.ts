@@ -6,6 +6,7 @@ import IconParser, { ICON_NODE_TYPE } from './IconParser';
 import ImageParser, { IMAGE_NODE_TYPE } from './ImageParser';
 import LinkParser, {LINK_NODE_TYPE} from './LinkParser';
 import ParagraphParser, { PARAGRAPH_NODE_TYPE } from './ParagraphParser';
+import QRLinkParser, { QR_LINK_NODE_TYPE } from './QRLinkParser';
 import TextParser, { TEXT_NODE_TYPE } from './TextParser';
 
 export default {
@@ -16,5 +17,6 @@ export default {
   [HEADING_NODE_TYPE]: HeadingParser,
   [PARAGRAPH_NODE_TYPE]: ParagraphParser,
   [BULLETED_LIST_NODE_TYPE]: BulletedListParser,
-  [IMAGE_NODE_TYPE]: ImageParser
+  [IMAGE_NODE_TYPE]: ImageParser,
+  [QR_LINK_NODE_TYPE]: QRLinkParser
 } as { [key in string]?: (props: TreeNode) => JSX.Element };
