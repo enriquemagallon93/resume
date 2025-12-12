@@ -22,7 +22,8 @@ const style = stylex.create({
     gap: "50px",
     alignItems: "center",
     ':not(#__unused__) .Parsed_Icon': {
-      color: colors.secondaryHightlight
+      color: colors.secondaryHightlight,
+      verticalAlign: 'middle',
     }
   },
   text: {

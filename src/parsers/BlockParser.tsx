@@ -1,15 +1,19 @@
 import NodesParser, { MaybeTree, TreeNode } from '../NodesParser';
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 export const BLOCK_NODE_TYPE = 'BLOCK';
 
 type BlockNode = TreeNode & {
-    type: typeof BLOCK_NODE_TYPE,
-    children?: MaybeTree;
-    props?: React.HTMLAttributes<HTMLDivElement>
+  type: typeof BLOCK_NODE_TYPE;
+  children?: MaybeTree;
+  props?: React.HTMLAttributes<HTMLDivElement>;
+  gridColumn?: CSSProperties['gridColumn'];
+  gridRow?: CSSProperties['gridRow'];
+  justifyContent?: CSSProperties['justifyContent'];
+  alignItems?: CSSProperties['justifyContent'];
 }
 
-const isABlockNode = (node: any): node is BlockNode  => 
+const isABlockNode = (node: any): node is BlockNode =>
   node.type === BLOCK_NODE_TYPE && (typeof node.props === 'object' || typeof node.props === 'undefined');
 
 const BlockParser = (node: MaybeTree) => {
@@ -22,9 +26,25 @@ const BlockParser = (node: MaybeTree) => {
     throw blockNodeError;
   }
 
-  const { children, props, } = node;
+  const { children, props, gridColumn, gridRow, justifyContent, alignItems } = node;
 
-  return <div {...props}>
+  const style: CSSProperties = {
+    ...props?.style,
+    ...(gridColumn ? {
+      gridColumn,
+    } : {}),
+    ...(gridRow ? {
+      gridRow,
+    } : {}),
+    ...(justifyContent ? {
+      justifyContent,
+    } : {}),
+    ...(alignItems ? {
+      alignItems,
+    } : {}),
+  };
+
+  return <div {...props} style={style}>
     {children ? <NodesParser tree={children} /> : ''}
   </div>;
 };
