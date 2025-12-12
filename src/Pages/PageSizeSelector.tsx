@@ -41,14 +41,8 @@ const PageSizeSelector = () => {
     setWidth,
     height,
     setHeight,
-    horizontalMargin,
-    // setHorizontalMargin,
-    verticalMargin,
-    // setVerticalMargin,
     isCustomWidth,
     isCustomHeight,
-    // isCustomHorizontalMargin,
-    // isCustomVerticalMargin
   } = useSettings();
 
   return (
@@ -117,10 +111,6 @@ const PageSizeSelector = () => {
         {width}
         <br />
         {height}
-        <br />
-        {horizontalMargin}
-        <br />
-        {verticalMargin}
       </div>
     </fieldset>
   );
