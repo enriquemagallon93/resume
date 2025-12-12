@@ -13,7 +13,11 @@ export const headingStyles = stylex.create({
     lineHeight: '20px',
   },
   3: {},
-  4: {},
+  4: {
+    color: colors.hightlight,
+    fontSize: 14,
+    lineHeight: '18px',
+  },
   5: {},
   6: {}
 });

@@ -11,6 +11,7 @@ type BlockNode = TreeNode & {
   gridRow?: CSSProperties['gridRow'];
   justifyContent?: CSSProperties['justifyContent'];
   alignItems?: CSSProperties['justifyContent'];
+  margin?: CSSProperties['margin'];
 }
 
 const isABlockNode = (node: any): node is BlockNode =>
@@ -26,7 +27,7 @@ const BlockParser = (node: MaybeTree) => {
     throw blockNodeError;
   }
 
-  const { children, props, gridColumn, gridRow, justifyContent, alignItems } = node;
+  const { children, props, gridColumn, gridRow, justifyContent, alignItems, margin } = node;
 
   const style: CSSProperties = {
     ...props?.style,
@@ -41,6 +42,9 @@ const BlockParser = (node: MaybeTree) => {
     } : {}),
     ...(alignItems ? {
       alignItems,
+    } : {}),
+    ...(margin ? {
+      margin,
     } : {}),
   };
 
