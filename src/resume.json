@@ -1,23 +1,19 @@
 {
     "name": "Enrique",
     "lastName": "Magallón",
-    "title": "Software Engineer",
+    "title": "Staff Product Engineer",
     "intro": [
-        "Hi! I am Enrique, a devoted engineer with 10+ years of web development experience. I love to learn about new technologies and use that knowledge to work with others and solve difficult challenges. Reach me out if you want me to take your project to the next level ",
-        {
-            "type": "ICON",
-            "name": "rocket"
-        }
+        "Hi! I’m Enrique — a Staff Product Engineer with 12+ years of experience building and evolving web products. I focus on high-ownership work: leading ambiguous initiatives, shaping architecture, mentoring engineers, and delivering reliable, user-centered product experiences at scale."
     ],
     "photo": {
         "type": "IMAGE",
-        "title": "Enrique Magallon - Sofware Engineer",
+        "title": "Enrique Magallon - Software Engineer",
         "source": "https://raw.githubusercontent.com/enriquemagallon93/resume/main/src/assets/photo.jpeg"
     },
     "info": [
         {
             "type": "LINK",
-            "to": "mailto:magallon.enrique.93@gmail.com",
+            "to": "mailto:dev.ace.93.03@gmail.com",
             "children": [
                 {
                     "type": "ICON",
@@ -27,7 +23,7 @@
                         "title": "email"
                     }
                 },
-                " magallon.enrique.93@gmail.com"
+                " dev.ace.93.03@gmail.com"
             ],
             "props": {
                 "target": "_blank"
@@ -52,6 +48,24 @@
             }
         },
         {
+            "type": "LINK",
+            "to": "mailto:magallon.enrique.93@gmail.com",
+            "children": [
+                {
+                    "type": "ICON",
+                    "name": "email",
+                    "props": {
+                        "size": 20,
+                        "title": "email"
+                    }
+                },
+                " magallon.enrique.93@gmail.com"
+            ],
+            "props": {
+                "target": "_blank"
+            }
+        },
+        {
             "type": "BLOCK",
             "children": [
                 {
@@ -62,7 +76,7 @@
                         "title": "location"
                     }
                 },
-                " Mexico city"
+                " Mexico City"
             ]
         },
         {
@@ -103,10 +117,10 @@
                     "children": [
                         {
                             "type": "TEXT",
-                            "children": "English",
+                            "children": "English:",
                             "bold": true
                         },
-                        " Advance (C1)"
+                        " Advanced (C1)"
                     ]
                 },
                 {
@@ -115,7 +129,7 @@
                         {
                             "type": "TEXT",
                             "children": [
-                                "Spanish"
+                                "Spanish:"
                             ],
                             "bold": true
                         },
@@ -411,13 +425,13 @@
                                         "target": "_blank"
                                     }
                                 },
-                                " | Sr. React Engineer | ",
+                                " | Fully remote ( ",
                                 {
                                     "type": "TEXT",
                                     "children": "Jun 2022 - Present",
                                     "italic": true
                                 },
-                                " | Fully remote"
+                                " )"
                             ]
                         }
                     ]
@@ -432,7 +446,7 @@
                     "children": [
                         {
                             "type": "TEXT",
-                            "children": "HCP Core",
+                            "children": "Staff Product Engineer",
                             "bold": true
                         }
                     ]
@@ -442,16 +456,18 @@
                     "children": [
                         {
                             "type": "TEXT",
-                            "children": "I worked in multiple cross-team efforts to incorporate new onboarding functionality, maintain and migrate legacy code. These are some highlights:"
+                            "children": "Promoted to Staff Engineer in September 2024. Acted as the de facto Staff Engineer for the squad, with ownership across platform initiatives, shared UI, backend-adjacent integrations, developer experience, and customer-facing systems."
                         }
                     ]
                 },
                 {
                     "type": "BULLETED_LIST",
                     "children": [
-                        "Designed and implemented from start to finish a new React component that touched the domain of 16 squads and was visible for billions of users as it was implemented on every page. This was a difficult challenge as it required the component to let other non-React elements to work with it. The solution required approvals from many people including product owners, team leaders and staff engineers.",
-                        "Changed Github workflows in the design system repository to improve the way developers had to test feature branches in other repositories.",
-                        "Led and participated in code interviews for both, React and Ruby on Rails Senior candidates"
+                        "Led multiple cross-squad initiatives, defining architecture, APIs, and rollout strategies to support scalable product delivery.",
+                        "Played a central role in technical and product planning, defining and planning epics in partnership with product and design.",
+                        "Served as the primary architectural reviewer through an RFC/ADR process and acted as a blocking approver for high-impact changes.",
+                        "Mentored 3–5 engineers, providing technical leadership, design feedback, and career support.",
+                        "Interviewed candidates and participated in hiring decisions within the squad to uphold engineering quality and standards."
                     ]
                 },
                 {
@@ -459,26 +475,39 @@
                     "children": [
                         {
                             "type": "TEXT",
-                            "children": "Conquer",
+                            "children": " "
+                        }
+                    ]
+                },
+                {
+                    "type": "PARAGRAPH",
+                    "children": [
+                        {
+                            "type": "TEXT",
+                            "children": "Senior Product Engineer ( ",
+                            "bold": true
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": "Jun 2022 - Aug 2024",
+                            "bold": true,
+                            "italic": true
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " )",
                             "bold": true
                         }
                     ]
                 },
                 {
-                    "type": "PARAGRAPH",
-                    "children": [
-                        {
-                            "type": "TEXT",
-                            "children": "I collaborated with my teammates to create an LMS (Learning management system) in a greenfield project. These are some of my achievements:"
-                        }
-                    ]
-                },
-                {
                     "type": "BULLETED_LIST",
                     "children": [
-                        "I installed and set up typescript into the project's React App",
-                        "Added storybook and play functions for integration tests",
-                        "Designed a rich text editor that uses the slate library to either serialize text into JSON and deserialize JSON into HTML."
+                        "Owned and led a staff-level initiative to build a shared right-drawer React component used across the product to host internal chat tools, including an AI chatbot.",
+                        "Designed APIs and integration patterns in a monorepo environment and coordinated adoption across 16 squads.",
+                        "Delivered the feature via a phased, feature-flagged rollout, enabling access for ~1.5M users and ~50k daily views while ensuring compatibility with legacy server-rendered pages.",
+                        "Built and owned a learning management system used for customer onboarding, reducing onboarding-related support questions.",
+                        "Established a TypeScript-first React codebase, introduced Storybook and interaction tests, and implemented a Slate-based rich-text editor with JSON serialization."
                     ]
                 }
             ]
@@ -501,21 +530,20 @@
                             }
                         },
                         " | Sr. React Engineer | ",
+                        " Fully remote ( ",
                         {
                             "type": "TEXT",
                             "children": "Aug 2021 - May 2022",
                             "italic": true
                         },
-                        " | Fully remote"
+                        " )"
                     ]
                 },
                 {
                     "type": "BULLETED_LIST",
                     "children": [
-                        "With Next JS and Contentful, I created a blog where the marketing team was able to publish content about crypto in English, Spanish and Portuguese.",
-                        "I actively helped to improve internal tooling; One of the main tools was used in an effort to gradually split the mono-repo we worked with.",
-                        "Created a React library to expose providers and common components to other repositories.",
-                        "Helped as shadow in the code challenge interviews for React candidates"
+                        "Built a localized marketing blog using Next.js and Contentful, improving SEO and localization workflows while enabling non-engineering teams to publish content.",
+                        "Worked on internal tooling that enabled shared UI components across repositories, allowing independent application releases while preserving UI consistency."
                     ]
                 }
             ]
@@ -538,20 +566,20 @@
                             }
                         },
                         " | Web UI | ",
+                        " | Mexico City ( ",
                         {
                             "type": "TEXT",
                             "children": "Mar 2017 - Jul 2021",
                             "italic": true
                         },
-                        " | Mexico city"
+                        " )"
                     ]
                 },
                 {
                     "type": "BULLETED_LIST",
                     "children": [
-                        "I provided high level web development and maintenance support to international companies such as Intercom, LendingClub and Realogy.",
-                        "Delivered high quality React code and pages with special emphasys in SEO and performance.",
-                        "Got the promotion to the Sr level after 3 years of working as a junior developer."
+                        "Built and maintained React-based user interfaces for multiple client-facing applications.",
+                        "Collaborated with international teams to deliver performant, SEO-friendly web experiences."
                     ]
                 }
             ]
@@ -574,12 +602,13 @@
                             }
                         },
                         " | Fullstack developer | ",
+                        " | Leon, Mexico ( ",
                         {
                             "type": "TEXT",
                             "children": "Oct 2016 - Mar 2017",
                             "italic": true
                         },
-                        " | Leon, Mexico"
+                        " )"
                     ]
                 },
                 {
@@ -609,12 +638,13 @@
                             }
                         },
                         " | Web developer | ",
+                        " | Mexico City ( ",
                         {
                             "type": "TEXT",
                             "children": "Aug 2013 - Sep 2016",
                             "italic": true
                         },
-                        " | Mexico city"
+                        " )"
                     ]
                 },
                 {
@@ -659,12 +689,11 @@
         {
             "type": "BULLETED_LIST",
             "children": [
-                "Responsible",
-                "Committed to the team deliveries",
-                "Friendly",
-                "Communicative",
-                "Creative",
-                "Focused on quality"
+                "Technical leadership",
+                "Cross-team collaboration",
+                "Architectural decision-making",
+                "Mentorship and sponsorship",
+                "Product-oriented thinking"
             ]
         },
         {
@@ -715,12 +744,12 @@
             "children": [
                 {
                     "type": "LINK",
-                    "to": "https://www.udemy.com/certificate/UC-87e0221a-4e36-4a94-870b-c44d9a4fa04a/?utm_campaign=email&utm_source=sendgrid.com&utm_medium=email",
+                    "to": "https://www.hackerrank.com/certificates/80815a388da2",
                     "props": {
                         "target": "_blank",
                         "className": "url_link"
                     },
-                    "children": "https://www.udemy.com/certificate/UC-87e0221a-4e36-4a94-870b-c44d9a4fa04a/?utm_campaign=email&utm_source=sendgrid.com&utm_medium=email"
+                    "children": "https://www.hackerrank.com/certificates/80815a388da2"
                 }
             ]
         }
@@ -732,15 +761,16 @@
             "url": "https://enriquemagallon93.github.io/resume/"
         },
         {
-            "type":"QR_LINK",
+            "type": "QR_LINK",
             "title": "Resume Github Repository",
             "url": "https://github.com/enriquemagallon93/resume"
         },
         {
-            "type":"QR_LINK",
+            "type": "QR_LINK",
             "title": "Github Profile",
             "url": "https://github.com/enriquemagallon93"
-        }, {
+        },
+        {
             "type": "QR_LINK",
             "title": "Linkedin Profile",
             "url": "https://www.linkedin.com/in/enrique-magall%C3%B3n-307045137/"
