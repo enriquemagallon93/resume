@@ -27,6 +27,10 @@ body {
   min-height: 100vh;
 }
 
+svg {
+  vertical-align: middle;
+}
+
 @media print {
   body {
     display: block;

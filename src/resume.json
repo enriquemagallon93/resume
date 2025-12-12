@@ -140,6 +140,9 @@
         },
         {
             "type": "BLOCK",
+            "gridColumn": "span 2",
+            "alignItems": "center",
+            "justifyContent": "space-between",
             "children": [
                 {
                     "type": "LINK",
@@ -155,6 +158,11 @@
                                 "title": "react",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " React",
+                            "verticalAlign": "middle"
                         }
                     ]
                 },
@@ -172,6 +180,11 @@
                                 "title": "node",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " NodeJS",
+                            "verticalAlign": "middle"
                         }
                     ]
                 },
@@ -189,6 +202,11 @@
                                 "title": "storybook",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " Storybook",
+                            "verticalAlign": "middle"
                         }
                     ]
                 },
@@ -206,6 +224,11 @@
                                 "title": "typescript",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " TypeScript",
+                            "verticalAlign": "middle"
                         }
                     ]
                 },
@@ -223,6 +246,11 @@
                                 "title": "jest",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " Jest",
+                            "verticalAlign": "middle"
                         }
                     ]
                 },
@@ -240,6 +268,11 @@
                                 "title": "webpack",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " Webpack",
+                            "verticalAlign": "middle"
                         }
                     ]
                 },
@@ -257,9 +290,22 @@
                                 "title": "Ruby on Rails",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " Ruby on Rails",
+                            "verticalAlign": "middle"
                         }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "type": "BLOCK",
+            "gridColumn": "span 2",
+            "alignItems": "center",
+            "justifyContent": "space-between",
+            "children": [
                 {
                     "type": "LINK",
                     "props": {
@@ -274,6 +320,11 @@
                                 "title": "Bash scripting",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " Bash Scripting",
+                            "verticalAlign": "middle"
                         }
                     ]
                 },
@@ -291,6 +342,11 @@
                                 "title": "Contentful",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " Contentful",
+                            "verticalAlign": "middle"
                         }
                     ]
                 },
@@ -308,6 +364,11 @@
                                 "title": "Styled Components",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " Styled Components",
+                            "verticalAlign": "middle"
                         }
                     ]
                 },
@@ -325,6 +386,11 @@
                                 "title": "Sass",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " Sass",
+                            "verticalAlign": "middle"
                         }
                     ]
                 },
@@ -342,6 +408,11 @@
                                 "title": "HTML5",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " HTML5",
+                            "verticalAlign": "middle"
                         }
                     ]
                 },
@@ -359,6 +430,11 @@
                                 "title": "CSS3",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " CSS3",
+                            "verticalAlign": "middle"
                         }
                     ]
                 },
@@ -376,6 +452,11 @@
                                 "title": "Redux",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " Redux",
+                            "verticalAlign": "middle"
                         }
                     ]
                 },
@@ -393,6 +474,11 @@
                                 "title": "Cypress",
                                 "size": 16
                             }
+                        },
+                        {
+                            "type": "TEXT",
+                            "children": " Cypress",
+                            "verticalAlign": "middle"
                         }
                     ]
                 }
@@ -481,6 +567,7 @@
                 },
                 {
                     "type": "PARAGRAPH",
+                    "margin": "8px 0 0 0",
                     "children": [
                         {
                             "type": "TEXT",
@@ -505,7 +592,7 @@
                     "children": [
                         "Owned and led a staff-level initiative to build a shared right-drawer React component used across the product to host internal chat tools, including an AI chatbot.",
                         "Designed APIs and integration patterns in a monorepo environment and coordinated adoption across 16 squads.",
-                        "Delivered the feature via a phased, feature-flagged rollout, enabling access for ~1.5M users and ~50k daily views while ensuring compatibility with legacy server-rendered pages.",
+                        "Delivered the feature via a phased, feature-flagged rollout, enabling access for ~1.5M users and ~50k daily views while ensuring compatibility with legacy server-rendered pages (Ruby on rails templates).",
                         "Built and owned a learning management system used for customer onboarding, reducing onboarding-related support questions.",
                         "Established a TypeScript-first React codebase, introduced Storybook and interaction tests, and implemented a Slate-based rich-text editor with JSON serialization."
                     ]

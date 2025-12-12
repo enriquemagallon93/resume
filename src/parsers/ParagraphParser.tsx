@@ -1,12 +1,13 @@
 import NodesParser, { MaybeTree, TreeNode } from '../NodesParser';
-import React from 'react';
+import React, { CSSProperties } from 'react';
 
 export const PARAGRAPH_NODE_TYPE = 'PARAGRAPH';
 
 type ParagraphNode = TreeNode & {
     type: typeof PARAGRAPH_NODE_TYPE,
     children?: MaybeTree;
-    props?: React.HTMLAttributes<HTMLParagraphElement>
+    props?: React.HTMLAttributes<HTMLParagraphElement>;
+    margin?: CSSProperties['margin'];
 }
 
 const isAParagraphNode = (node: any): node is ParagraphNode  => 
@@ -22,9 +23,16 @@ const ParagraphParser = (node: MaybeTree) => {
     throw paragraphNodeError;
   }
 
-  const { children, props, } = node;
+  const { children, props, margin } = node;
 
-  return <p {...props}>
+  const style: CSSProperties = {
+    ...props?.style,
+    ...(margin ? {
+      margin,
+    } : {}),
+  };
+
+  return <p {...props} style={style}>
     {children ? <NodesParser tree={children} /> : ''}
   </p>;
 };
