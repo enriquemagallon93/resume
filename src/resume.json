@@ -10,6 +10,21 @@
         "title": "Enrique Magallon - Software Engineer",
         "source": "https://raw.githubusercontent.com/enriquemagallon93/resume/main/src/assets/resume_photo.jpg"
     },
+    "selectedImpact": [{
+        "type":"BLOCK",
+        "margin":"8px 0 0",
+        "children": [
+            {
+                "type": "BULLETED_LIST",
+                "children": [
+                    "Led a cross-squad platform initiative used by ~1.5M users",
+                    "Acted as Staff IC and architectural approver via RFC/ADR process",
+                    "Mentored 3–5 engineers and contributed to hiring decisions"
+                ]
+            }
+        ]
+    }
+    ],
     "info": [
         {
             "type": "LINK",
@@ -142,6 +157,7 @@
             "type": "BLOCK",
             "gridColumn": "span 2",
             "alignItems": "center",
+            "margin": "8px 0 0",
             "justifyContent": "space-between",
             "children": [
                 {
@@ -616,7 +632,7 @@
                                 "target": "_blank"
                             }
                         },
-                        " | Sr. React Engineer | ",
+                        " | Senior Software Engineer (React) | ",
                         " Fully remote ( ",
                         {
                             "type": "TEXT",
@@ -746,6 +762,21 @@
             ]
         },
         {
+            "type": "HEADING",
+            "number": 2,
+            "children": "Soft Skills"
+        },
+        {
+            "type": "BULLETED_LIST",
+            "children": [
+                "Technical leadership",
+                "Cross-team collaboration",
+                "Architectural decision-making",
+                "Mentorship and sponsorship",
+                "Product-oriented thinking"
+            ]
+        },
+        {
             "type": "BLOCK",
             "children": [
                 {
@@ -766,21 +797,6 @@
                         " | Naucalpan, Mexico"
                     ]
                 }
-            ]
-        },
-        {
-            "type": "HEADING",
-            "number": 2,
-            "children": "Soft Skills"
-        },
-        {
-            "type": "BULLETED_LIST",
-            "children": [
-                "Technical leadership",
-                "Cross-team collaboration",
-                "Architectural decision-making",
-                "Mentorship and sponsorship",
-                "Product-oriented thinking"
             ]
         },
         {
