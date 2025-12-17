@@ -97,7 +97,7 @@
         },
         {
             "type": "LINK",
-            "to": "https://www.https://www.linkedin.com/in/enrique-magallon/",
+            "to": "https://www.linkedin.com/in/enrique-magallon/",
             "children": [
                 {
                     "type": "ICON",
@@ -877,7 +877,7 @@
         {
             "type": "QR_LINK",
             "title": "Linkedin Profile",
-            "url": "https://www.https://www.linkedin.com/in/enrique-magallon/"
+            "url": "https://www.linkedin.com/in/enrique-magallon/"
         }
     ]
 }
