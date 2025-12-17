@@ -10,20 +10,21 @@
         "title": "Enrique Magallon - Software Engineer",
         "source": "https://raw.githubusercontent.com/enriquemagallon93/resume/main/src/assets/resume_photo.jpg"
     },
-    "selectedImpact": [{
-        "type":"BLOCK",
-        "margin":"8px 0 0",
-        "children": [
-            {
-                "type": "BULLETED_LIST",
-                "children": [
-                    "Led a cross-squad platform initiative used by ~1.5M users",
-                    "Acted as Staff IC and architectural approver via RFC/ADR process",
-                    "Mentored 3–5 engineers and contributed to hiring decisions"
-                ]
-            }
-        ]
-    }
+    "selectedImpact": [
+        {
+            "type": "BLOCK",
+            "margin": "8px 0 0",
+            "children": [
+                {
+                    "type": "BULLETED_LIST",
+                    "children": [
+                        "Led a cross-squad platform initiative used by ~1.5M users",
+                        "Acted as Staff IC and architectural approver via RFC/ADR process",
+                        "Mentored 3–5 engineers and contributed to hiring decisions"
+                    ]
+                }
+            ]
+        }
     ],
     "info": [
         {
@@ -96,7 +97,7 @@
         },
         {
             "type": "LINK",
-            "to": "https://www.linkedin.com/in/enrique-magall%C3%B3n-307045137/",
+            "to": "https://www.https://www.linkedin.com/in/enrique-magallon/",
             "children": [
                 {
                     "type": "ICON",
@@ -106,7 +107,7 @@
                         "title": "LinkedIn"
                     }
                 },
-                " linkedin.com/in/enrique-magall%C3%B3n-307045137/"
+                " https://www.linkedin.com/in/enrique-magallon/"
             ],
             "props": {
                 "target": "_blank"
@@ -861,7 +862,7 @@
         {
             "type": "QR_LINK",
             "title": "Resume Web Version",
-            "url": "http://resume.enrique-magallon.com/"
+            "url": "http://enrique-magallon.com/"
         },
         {
             "type": "QR_LINK",
@@ -876,7 +877,7 @@
         {
             "type": "QR_LINK",
             "title": "Linkedin Profile",
-            "url": "https://www.linkedin.com/in/enrique-magall%C3%B3n-307045137/"
+            "url": "https://www.https://www.linkedin.com/in/enrique-magallon/"
         }
     ]
 }

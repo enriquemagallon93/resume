@@ -1,28 +1,39 @@
-// import qrcode from 'qrcode';
 import QRCode from 'react-qr-code';
 import { colors } from './themes/palette.stylex';
+import { useEffect, useState } from 'react';
 
-function SsrQrCode({ src }: { src: string }) {
-  console.log('skipping qr code for:', src);
-  // const codeUrl = await qrcode.toDataURL(src);
+export const SIZE = 180;
 
-  // return <img src={codeUrl} />;
-  return null;
-}
+const SsrQrCode = ({ title }: { title: string }) => {
+  return <div style={{ width: SIZE, height: SIZE, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <span>{title}</span>
+  </div>;
+};
 
-const IsomorphicQRCode = ({ src }: { src: string }) => {
-  if (typeof window === "undefined") {
-    return <SsrQrCode src={src} />;
+const IsomorphicQRCode = ({ src, title }: { src: string; title: string }) => {
+  const [shouldRenderFallback, setShouldRenderFallback] = useState(true);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setShouldRenderFallback(false);
+    }
+  }, []);
+
+  if (shouldRenderFallback) {
+    return <SsrQrCode title={title} />;
   }
   return (
-    <QRCode
-      size={256}
-      style={{ height: "auto", maxWidth: "100%", width: "100%" }}
-      value={src}
-      viewBox={`0 0 256 256`}
-      fgColor={colors.pageColor}
-      bgColor={colors.pageBackground}
-    />
+    <>
+      <QRCode
+        size={SIZE}
+        style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+        value={src}
+        viewBox={`0 0 ${SIZE} ${SIZE}`}
+        fgColor={colors.pageColor}
+        bgColor={colors.pageBackground}
+      />
+      <span>{title}</span>
+    </>
   );
 };
 

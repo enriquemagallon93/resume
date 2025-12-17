@@ -7,10 +7,10 @@ export const QR_LINK_NODE_TYPE = 'QR_LINK';
 
 const styles = stylex.create({
   container: {
-    flexBasis: 255,
+    flexBasis: 180,
     flexGrow: 1,
     flexShrink: 1,
-    maxHeight: 255,
+    maxHeight: 180,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -25,13 +25,13 @@ const styles = stylex.create({
 });
 
 type QRLinkNode = TreeNode & {
-    type: typeof QR_LINK_NODE_TYPE,
-    children: undefined;
-    title: string;
-    url: string
+  type: typeof QR_LINK_NODE_TYPE,
+  children: undefined;
+  title: string;
+  url: string
 }
 
-const isQRLinkNode = (node: any): node is QRLinkNode  => 
+const isQRLinkNode = (node: any): node is QRLinkNode =>
   node.type === QR_LINK_NODE_TYPE && typeof node.title === 'string' && typeof node.url === 'string';
 
 const QRLinkParser = (node: MaybeTree) => {
@@ -48,8 +48,7 @@ const QRLinkParser = (node: MaybeTree) => {
     <a href={node.url} target="_blank" {...stylex.props(styles.container, styles.link)}>
       <IsomorphicQRCode
         src={node.url}
-      />
-      <span>{node.title}</span>
+        title={node.title} />
     </a>
   );
 };
