@@ -1,7 +1,5 @@
-// import { useRef } from "react";
 import useSettings from "../Settings/useSettings";
 import * as stylex from '@stylexjs/stylex';
-// import { PageSize } from "./types";
 import { A4, LETTER } from "./constants";
 
 const styles = stylex.create({
@@ -50,8 +48,8 @@ const PageSizeSelector = () => {
       <legend {...stylex.props(styles.legend)} >Page Size</legend>
       <div>
         <label {...stylex.props(styles.label)} htmlFor="width"> Width: </label>
-        <select id="width" name="width" value={isCustomWidth ? 'custom' : width} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
-          setWidth((value === 'custom' ? `custom-${width}`: value) as any );
+        <select id="width" name="width" value={isCustomWidth ? 'custom' : width} {...stylex.props(styles.dropdown)} onChange={({ target: { value } }) => {
+          setWidth((value === 'custom' ? `custom-${width}` : value) as any);
         }}>
           <option {...stylex.props(styles.option)} value={A4.width}>A4</option>
           <option {...stylex.props(styles.option)} value={LETTER.width}>Letter</option>
@@ -60,11 +58,11 @@ const PageSizeSelector = () => {
         {isCustomWidth ? (
           <>
             <br />
-            <input name="custom-width" type="number" value={(width + '').replace(/(cm|mm|in|px|pt|pc|%)$/, '')} onChange={({ target: { value }}) => {
+            <input name="custom-width" type="number" value={(width + '').replace(/(cm|mm|in|px|pt|pc|%)$/, '')} onChange={({ target: { value } }) => {
               setWidth(`custom-${value}${(width + '').replace(/.*(?=(cm|mm|in|px|pt|pc|%))/, '')}` as any);
             }} />
-            <select name="custom-width-units" value={(width + '').replace(/.*(?=(cm|mm|in|px|pt|pc|%))/, '')} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
-              setWidth((`custom-${(width + '').replace(/(cm|mm|in|px|pt|pc|%)$/, '')}${value}`) as any );
+            <select name="custom-width-units" value={(width + '').replace(/.*(?=(cm|mm|in|px|pt|pc|%))/, '')} {...stylex.props(styles.dropdown)} onChange={({ target: { value } }) => {
+              setWidth((`custom-${(width + '').replace(/(cm|mm|in|px|pt|pc|%)$/, '')}${value}`) as any);
             }}>
               <option {...stylex.props(styles.option)} value="cm">cm</option>
               <option {...stylex.props(styles.option)} value="mm">mm</option>
@@ -75,13 +73,13 @@ const PageSizeSelector = () => {
               <option {...stylex.props(styles.option)} value="%">%</option>
             </select>
           </>
-        ):null}
+        ) : null}
 
         <br />
 
         <label {...stylex.props(styles.label)} htmlFor="height"> Height: </label>
-        <select id="height" name="height" value={isCustomHeight ? 'custom' : height} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
-          setHeight((value === 'custom' ? `custom-${height}`: value) as any );
+        <select id="height" name="height" value={isCustomHeight ? 'custom' : height} {...stylex.props(styles.dropdown)} onChange={({ target: { value } }) => {
+          setHeight((value === 'custom' ? `custom-${height}` : value) as any);
         }}>
           <option {...stylex.props(styles.option)} value={A4.height}>A4</option>
           <option {...stylex.props(styles.option)} value={LETTER.height}>Letter</option>
@@ -90,11 +88,11 @@ const PageSizeSelector = () => {
         {isCustomHeight ? (
           <>
             <br />
-            <input name="custom-height" type="number" value={(height + '').replace(/(cm|mm|in|px|pt|pc|%)$/, '')} onChange={({ target: { value }}) => {
+            <input name="custom-height" type="number" value={(height + '').replace(/(cm|mm|in|px|pt|pc|%)$/, '')} onChange={({ target: { value } }) => {
               setHeight(`custom-${value}${(height + '').replace(/.*(?=(cm|mm|in|px|pt|pc|%))/, '')}` as any);
             }} />
-            <select name="custom-height-units" value={(height + '').replace(/.*(?=(cm|mm|in|px|pt|pc|%))/, '')} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
-              setHeight((`custom-${(height + '').replace(/(cm|mm|in|px|pt|pc|%)$/, '')}${value}`) as any );
+            <select name="custom-height-units" value={(height + '').replace(/.*(?=(cm|mm|in|px|pt|pc|%))/, '')} {...stylex.props(styles.dropdown)} onChange={({ target: { value } }) => {
+              setHeight((`custom-${(height + '').replace(/(cm|mm|in|px|pt|pc|%)$/, '')}${value}`) as any);
             }}>
               <option {...stylex.props(styles.option)} value="cm">cm</option>
               <option {...stylex.props(styles.option)} value="mm">mm</option>
@@ -105,7 +103,7 @@ const PageSizeSelector = () => {
               <option {...stylex.props(styles.option)} value="%">%</option>
             </select>
           </>
-        ):null}
+        ) : null}
       </div>
     </fieldset>
   );

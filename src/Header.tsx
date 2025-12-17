@@ -48,7 +48,7 @@ const Header = () => {
   return (
     <>
       <Helmet>
-        <title>{`${resume.name} ${resume.lastName} - Resume`}</title>
+        <title>{`${resume.name} ${resume.lastName} · ${resume.title}`}</title>
       </Helmet>
       <div {...stylex.props(style.header)}>
         <div {...stylex.props(style.text)}>
