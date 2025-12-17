@@ -1,21 +1,24 @@
+import { lazy, Suspense } from 'react';
 
-import Header from './Header';
-import Info from './Info';
-import Body from './Body';
-import Pages from './Pages/Pages';
-import Settings from './Settings/Settings';
-import Impact from './Impact';
+const Header = lazy(() => import('./Header'));
+const Info = lazy(() => import('./Info'));
+const Body = lazy(() => import('./Body'));
+const Pages = lazy(() => import('./Pages/Pages'));
+const Settings = lazy(() => import('./Settings/Settings'));
+const Impact = lazy(() => import('./Impact'));
 
 const Resume = () => {
   return (
-    <Settings>
-      <Pages>
-        <Header />
-        <Impact />
-        <Info />
-        <Body />
-      </Pages>
-    </Settings>
+    <Suspense >
+      <Settings>
+        <Pages>
+          <Header />
+          <Impact />
+          <Info />
+          <Body />
+        </Pages>
+      </Settings>
+    </Suspense>
   );
 };
 

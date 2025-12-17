@@ -1,4 +1,4 @@
-import NodesParser from './NodesParser';
+import { Suspense, lazy } from 'react';
 
 import resume from './resume.json';
 
@@ -6,6 +6,8 @@ import * as stylex from '@stylexjs/stylex';
 
 import { size } from './Pages/page.stylex';
 import { colors } from './themes/palette.stylex';
+
+const NodesParser = lazy(() => import('./NodesParser'));
 
 const styles = stylex.create({
   mainInfo: {
@@ -38,11 +40,13 @@ const styles = stylex.create({
 });
 
 const Info = () => {
-  const {className, style} = stylex.props(styles.mainInfo);
+  const { className, style } = stylex.props(styles.mainInfo);
   return (
-    <div className={`main-info ${className}`} style={style}>
-      <NodesParser tree={resume.info} />
-    </div>
+    <Suspense>
+      <div className={`main-info ${className}`} style={style}>
+        <NodesParser tree={resume.info} />
+      </div>
+    </Suspense>
   );
 };
 

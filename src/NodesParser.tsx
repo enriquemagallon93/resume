@@ -1,8 +1,8 @@
 import Parsers from './parsers';
 
 export type TreeNode = {
-    type: string;
-    children?: TreeNode | TreeNode[]
+  type: string;
+  children?: TreeNode | TreeNode[]
 };
 
 type Tree = string | TreeNode | TreeNode[];

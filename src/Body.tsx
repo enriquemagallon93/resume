@@ -1,7 +1,9 @@
-import NodesParser from './NodesParser';
+import { lazy } from 'react';
 import resume from './resume.json';
 import * as stylex from '@stylexjs/stylex';
 import { colors } from './themes/palette.stylex';
+
+const NodesParser = lazy(() => import('./NodesParser'));
 
 const styles = stylex.create({
   body: {
