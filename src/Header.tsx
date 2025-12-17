@@ -1,5 +1,6 @@
 import resume from './resume.json';
 import NodesParser from './NodesParser';
+import { Helmet } from 'react-helmet-async';
 
 import * as stylex from '@stylexjs/stylex';
 
@@ -45,22 +46,27 @@ const style = stylex.create({
 
 const Header = () => {
   return (
-    <div {...stylex.props(style.header)}>
-      <div {...stylex.props(style.text)}>
-        <div>
-          <h1 {...stylex.props(headingStyles[1])}>{resume.name} {resume.lastName}</h1>
-          <h2 {...stylex.props(headingStyles[2])}>{resume.title}</h2>
+    <>
+      <Helmet>
+        <title>{`${resume.name} ${resume.lastName} - Resume`}</title>
+      </Helmet>
+      <div {...stylex.props(style.header)}>
+        <div {...stylex.props(style.text)}>
+          <div>
+            <h1 {...stylex.props(headingStyles[1])}>{resume.name} {resume.lastName}</h1>
+            <h2 {...stylex.props(headingStyles[2])}>{resume.title}</h2>
+          </div>
+          <div>
+            <p>
+              {<NodesParser tree={resume.intro} />}
+            </p>
+          </div>
         </div>
-        <div>
-          <p>
-            {<NodesParser tree={resume.intro} />}
-          </p>
+        <div {...stylex.props(style.photo)}>
+          <NodesParser tree={resume.photo} />
         </div>
       </div>
-      <div {...stylex.props(style.photo)}>
-        <NodesParser tree={resume.photo} />
-      </div>
-    </div>
+    </>
   );
 };
 

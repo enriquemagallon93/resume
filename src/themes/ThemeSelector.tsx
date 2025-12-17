@@ -41,7 +41,7 @@ const ThemeSelector = () => {
       <legend {...stylex.props(styles.legend)} >Styling</legend>
       <div>
         <label {...stylex.props(styles.label)} htmlFor="mode"> Mode: </label>
-        <select name="mode" value={mode} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
+        <select id="mode" name="mode" value={mode} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
           setMode(value as 'light' | 'dark');
         }}>
           <option {...stylex.props(styles.option)} value="light">Light</option>
@@ -50,7 +50,7 @@ const ThemeSelector = () => {
       </div>
       <div>
         <label {...stylex.props(styles.label)} htmlFor="theme"> Theme: </label>
-        <select name="theme" value={themeName} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
+        <select id="theme" name="theme" value={themeName} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
           setThemeName(value as ThemeName);
         }}>
           <option {...stylex.props(styles.option)} value="default">Default</option>

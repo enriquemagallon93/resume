@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ViteReactSSG } from 'vite-react-ssg/single-page';
 import Resume from './Resume.tsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 import './reset.css';
 import './index.css';
@@ -13,13 +14,17 @@ let root = undefined;
 if (mode === 'development') {
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-      <Resume />
+      <HelmetProvider>
+        <Resume />
+      </HelmetProvider>
     </React.StrictMode>,
   );
 } else {
   root = ViteReactSSG(
     <React.StrictMode>
-      <Resume />
+      <HelmetProvider>
+        <Resume />
+      </HelmetProvider>
     </React.StrictMode>,
   );
 }

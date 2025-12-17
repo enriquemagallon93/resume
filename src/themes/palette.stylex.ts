@@ -10,6 +10,6 @@ export const colors = stylex.defineVars({
   bold: "#32edd7",
   pageBackground: "#FFFFFF",
   pageColor: "#000000",
-  pageHightlight: "#4493a9",
+  pageHightlight: "#327686",
   hyper: "blue"
 });

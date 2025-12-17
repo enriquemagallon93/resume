@@ -60,22 +60,24 @@ const Pages= ({ children }: { children: ReactNode }) => {
 
   return (
     <Theme>
-      {isReady ? (
-        pages.map((page, index) => {
-          return <div key={index} dangerouslySetInnerHTML={{ __html: page }} />;
-        })
-      ) : (
-        <div >
-          <Page style={[ isServerSide && styles.noJs]} ref={originalPage}
-            width={width}
-            height={height}
-            horizontalMargin={horizontalMargin}
-            verticalMargin={verticalMargin}
-          >
-            {children}
-          </Page>
-        </div>
-      )}
+      <main>
+        {isReady ? (
+          pages.map((page, index) => {
+            return <div key={index} dangerouslySetInnerHTML={{ __html: page }} />;
+          })
+        ) : (
+          <div >
+            <Page style={[ isServerSide && styles.noJs]} ref={originalPage}
+              width={width}
+              height={height}
+              horizontalMargin={horizontalMargin}
+              verticalMargin={verticalMargin}
+            >
+              {children}
+            </Page>
+          </div>
+        )}
+      </main>
     </Theme>
   );
 };
