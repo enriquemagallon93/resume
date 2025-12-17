@@ -57,7 +57,11 @@ const styles = stylex.create({
   })
 });
 
-const LeftPanel = ({ children }: { children: ReactNode }) => {
+type LeftPanelProps = {
+    children: ReactNode;
+}
+
+const LeftPanel = ({ children }: LeftPanelProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
 

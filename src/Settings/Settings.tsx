@@ -1,6 +1,6 @@
 import { type ReactNode, useState } from "react";
 import { SettingsContext, type UnitOrCustom, type SettingsContextProps } from "./SettingsContext";
-import LeftPanel from "./LeftPanel";
+import LazyLeftPanel from "./LazyLeftPanel";
 import { A4 } from "../Pages/constants";
 import { PageSize } from "../Pages/types";
 
@@ -64,9 +64,9 @@ const Settings = ({ children }: { children: ReactNode }) => {
       },
       isCustomVerticalMargin,
     }} >
-      <LeftPanel>
+      <LazyLeftPanel>
         {children}
-      </LeftPanel>
+      </LazyLeftPanel>
     </SettingsContext.Provider>
   );
 };
