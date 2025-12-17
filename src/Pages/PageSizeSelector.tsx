@@ -50,7 +50,7 @@ const PageSizeSelector = () => {
       <legend {...stylex.props(styles.legend)} >Page Size</legend>
       <div>
         <label {...stylex.props(styles.label)} htmlFor="width"> Width: </label>
-        <select name="width" value={isCustomWidth ? 'custom' : width} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
+        <select id="width" name="width" value={isCustomWidth ? 'custom' : width} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
           setWidth((value === 'custom' ? `custom-${width}`: value) as any );
         }}>
           <option {...stylex.props(styles.option)} value={A4.width}>A4</option>
@@ -80,7 +80,7 @@ const PageSizeSelector = () => {
         <br />
 
         <label {...stylex.props(styles.label)} htmlFor="height"> Height: </label>
-        <select name="height" value={isCustomHeight ? 'custom' : height} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
+        <select id="height" name="height" value={isCustomHeight ? 'custom' : height} {...stylex.props(styles.dropdown)} onChange={({target: { value }}) => {
           setHeight((value === 'custom' ? `custom-${height}`: value) as any );
         }}>
           <option {...stylex.props(styles.option)} value={A4.height}>A4</option>
@@ -106,11 +106,6 @@ const PageSizeSelector = () => {
             </select>
           </>
         ):null}
-      </div>
-      <div>
-        {width}
-        <br />
-        {height}
       </div>
     </fieldset>
   );
