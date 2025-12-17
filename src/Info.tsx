@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { lazy } from 'react';
 
 import resume from './resume.json';
 
@@ -42,11 +42,9 @@ const styles = stylex.create({
 const Info = () => {
   const { className, style } = stylex.props(styles.mainInfo);
   return (
-    <Suspense>
-      <div className={`main-info ${className}`} style={style}>
-        <NodesParser tree={resume.info} />
-      </div>
-    </Suspense>
+    <div className={`main-info ${className}`} style={style}>
+      <NodesParser tree={resume.info} />
+    </div>
   );
 };
 

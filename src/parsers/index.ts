@@ -1,25 +1,13 @@
-import { lazy } from 'react';
-
 import { type TreeNode } from '../NodesParser';
-import { BLOCK_NODE_TYPE } from './BlockParser';
-import { BULLETED_LIST_NODE_TYPE } from './BulletedListParser';
-import { HEADING_NODE_TYPE } from './HeadingParser';
-import { ICON_NODE_TYPE } from './IconParser';
-import { IMAGE_NODE_TYPE } from './ImageParser';
-import { LINK_NODE_TYPE } from './LinkParser';
-import { PARAGRAPH_NODE_TYPE } from './ParagraphParser';
-import { QR_LINK_NODE_TYPE } from './QRLinkParser';
-import { TEXT_NODE_TYPE } from './TextParser';
-
-const IconParser = lazy(() => import('./IconParser'));
-const LinkParser = lazy(() => import('./LinkParser'));
-const BlockParser = lazy(() => import('./BlockParser'));
-const TextParser = lazy(() => import('./TextParser'));
-const HeadingParser = lazy(() => import('./HeadingParser'));
-const ParagraphParser = lazy(() => import('./ParagraphParser'));
-const BulletedListParser = lazy(() => import('./BulletedListParser'));
-const ImageParser = lazy(() => import('./ImageParser'));
-const QRLinkParser = lazy(() => import('./QRLinkParser'));
+import BlockParser, { BLOCK_NODE_TYPE } from './BlockParser';
+import BulletedListParser, { BULLETED_LIST_NODE_TYPE } from './BulletedListParser';
+import HeadingParser, { HEADING_NODE_TYPE } from './HeadingParser';
+import IconParser, { ICON_NODE_TYPE } from './IconParser';
+import ImageParser, { IMAGE_NODE_TYPE } from './ImageParser';
+import LinkParser, { LINK_NODE_TYPE } from './LinkParser';
+import ParagraphParser, { PARAGRAPH_NODE_TYPE } from './ParagraphParser';
+import QRLinkParser, { QR_LINK_NODE_TYPE } from './QRLinkParser';
+import TextParser, { TEXT_NODE_TYPE } from './TextParser';
 
 export default {
   [ICON_NODE_TYPE]: IconParser,

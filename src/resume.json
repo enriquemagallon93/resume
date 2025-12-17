@@ -8,9 +8,7 @@
     "photo": {
         "type": "IMAGE",
         "title": "Enrique Magallon - Software Engineer",
-        "source": "https://raw.githubusercontent.com/enriquemagallon93/resume/main/src/assets/resume_photo.jpg",
-        "width": "100px",
-        "height": "100px"
+        "source": "https://raw.githubusercontent.com/enriquemagallon93/resume/main/src/assets/resume_photo.jpg"
     },
     "selectedImpact": [
         {
