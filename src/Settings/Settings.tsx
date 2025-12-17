@@ -1,4 +1,4 @@
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 import { SettingsContext, type UnitOrCustom, type SettingsContextProps } from "./SettingsContext";
 import LazyLeftPanel from "./LazyLeftPanel";
 import { A4 } from "../Pages/constants";
@@ -28,6 +28,23 @@ const Settings = ({ children }: { children: ReactNode }) => {
   const [isCustomHeight, setIsCustomHeight] = useState(false);
   const [isCustomHorizontalMargin, setIsCustomHorizontalMargin] = useState(false);
   const [isCustomVerticalMargin, setIsCustomVerticalMargin] = useState(false);
+  const firstTimeChecked = useRef(false);
+
+  useEffect(() => {
+    if (firstTimeChecked.current) return;
+    firstTimeChecked.current = true;
+
+    if (typeof window === 'undefined') return;
+
+    const matchQuery = window.matchMedia('(min-width: 842px)');
+
+    if (!matchQuery.matches) {
+      setWidth('100%');
+      setHeight('100%');
+      setIsCustomWidth(true);
+      setIsCustomHeight(true);
+    }
+  }, []);
 
   return (
     <SettingsContext.Provider value={{

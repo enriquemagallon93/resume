@@ -25,6 +25,10 @@ const style = stylex.create({
     ':not(#__unused__) .Parsed_Icon': {
       color: colors.secondaryHightlight,
       verticalAlign: 'middle',
+    },
+    flexDirection: 'column',
+    '@media (min-width: 600px)': {
+      flexDirection: 'row',
     }
   },
   text: {

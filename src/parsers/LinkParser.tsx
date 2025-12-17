@@ -4,13 +4,13 @@ import React from 'react';
 export const LINK_NODE_TYPE = 'LINK';
 
 type LinkNode = TreeNode & {
-    type: typeof LINK_NODE_TYPE,
-    to: string;
-    children?: MaybeTree;
-    props?: Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'children' | 'href'>
+  type: typeof LINK_NODE_TYPE,
+  to: string;
+  children?: MaybeTree;
+  props?: Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'children' | 'href'>
 }
 
-const isLinkNode = (node: any): node is LinkNode  => 
+const isLinkNode = (node: any): node is LinkNode =>
   node.type === LINK_NODE_TYPE && (typeof node.props === 'object' || typeof node.props === 'undefined') && typeof node.to === 'string';
 
 const LinkParser = (node: MaybeTree) => {
@@ -25,7 +25,10 @@ const LinkParser = (node: MaybeTree) => {
 
   const { children, props, to } = node;
 
-  return <a {...props} href={to}>
+  return <a {...props} style={{
+    wordBreak: 'break-word',
+    ...props?.style
+  }} href={to}>
     {children ? <NodesParser tree={children} /> : ''}
   </a>;
 };

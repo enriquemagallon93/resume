@@ -1,5 +1,5 @@
 import * as stylex from '@stylexjs/stylex';
-import { ReactNode, useLayoutEffect, useState } from 'react';
+import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import ThemeSelector from '../themes/ThemeSelector';
 import PageSizeSelector from '../Pages/PageSizeSelector';
@@ -58,16 +58,36 @@ const styles = stylex.create({
 });
 
 type LeftPanelProps = {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 const LeftPanel = ({ children }: LeftPanelProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
 
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+
+  }, []);
+
   useLayoutEffect(() => {
     setShowPanel(true);
-    setIsOpen(true);
+
+    if (!isFirstRender.current) return;
+    isFirstRender.current = false;
+
+    if (typeof window === 'undefined') return;
+
+    const matchQuery = window.matchMedia('(min-width: 1094px)');
+
+    console.log('Match query for left panel:', matchQuery.matches);
+
+    if (matchQuery.matches) {
+      setIsOpen(true);
+      return;
+    }
+
   }, []);
   return (
     showPanel ? (
@@ -80,7 +100,7 @@ const LeftPanel = ({ children }: LeftPanelProps) => {
                 setIsOpen(false);
               }} /> : <FaAngleRight cursor="pointer" onClick={() => {
                 setIsOpen(true);
-              }} /> }
+              }} />}
             </div>
             <ThemeSelector />
             <PageSizeSelector />

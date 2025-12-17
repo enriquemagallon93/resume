@@ -17,8 +17,6 @@ const styles = stylex.create({
     paddingLeft: size.pageHorizontalPadding,
     paddingRight: size.pageHorizontalPadding,
     backgroundColor: colors.secondaryBackground,
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
     gridTemplateRows: "auto",
     gap: "8px",
     color: colors.secondaryColor,
@@ -35,6 +33,12 @@ const styles = stylex.create({
     },
     ":not(#___unused___) a:hover": {
       color: colors.bold
+    },
+    display: "flex",
+    flexDirection: "column",
+    "@media (min-width: 600px)": {
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
     }
   }
 });

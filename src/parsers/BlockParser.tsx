@@ -48,7 +48,10 @@ const BlockParser = (node: MaybeTree) => {
     } : {}),
   };
 
-  return <div {...props} style={style}>
+  return <div {...props} style={{
+    flexWrap: 'wrap',
+    ...style
+  }}>
     {children ? <NodesParser tree={children} /> : ''}
   </div>;
 };
