@@ -34,13 +34,13 @@ const icons: { [key in string]?: IconType } = {
 };
 
 type IconNode = TreeNode & {
-    type: typeof ICON_NODE_TYPE,
-    children: undefined;
-    name: string;
-    props?: IconBaseProps
+  type: typeof ICON_NODE_TYPE,
+  children: undefined;
+  name: string;
+  props?: IconBaseProps
 }
 
-const isIconNode = (node: any): node is IconNode  => 
+const isIconNode = (node: any): node is IconNode =>
   node.type === ICON_NODE_TYPE && typeof node.name === 'string' && (typeof node.props === 'object' || typeof node.props === 'undefined');
 
 const IconParser = (node: MaybeTree) => {
