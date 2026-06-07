@@ -5,7 +5,7 @@ import { MdEmail, MdOutlinePhoneAndroid, MdLocationPin } from 'react-icons/md';
 import { IoLogoLinkedin } from "react-icons/io";
 import { FaLanguage } from "react-icons/fa6";
 import { FaReact, FaNodeJs, FaSass, FaHtml5, FaCss3, FaTerminal } from "react-icons/fa";
-import { SiStorybook, SiTypescript, SiJest, SiWebpack, SiCypress, SiContentful, SiStyledcomponents, SiRedux, SiRubyonrails } from "react-icons/si";
+import { SiStorybook, SiTypescript, SiJest, SiWebpack, SiCypress, SiContentful, SiStyledcomponents, SiRedux, SiRubyonrails, SiClaude, SiGithubcopilot } from "react-icons/si";
 
 export const ICON_NODE_TYPE = 'ICON';
 
@@ -30,7 +30,9 @@ const icons: { [key in string]?: IconType } = {
   contentful: SiContentful,
   styledComponents: SiStyledcomponents,
   redux: SiRedux,
-  rubyOnRails: SiRubyonrails
+  rubyOnRails: SiRubyonrails,
+  claudeCode: SiClaude,
+  copilot: SiGithubcopilot
 };
 
 type IconNode = TreeNode & {
