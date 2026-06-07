@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-import resume from './resume.json';
+import { useResume } from './resume/useResume';
 
 import * as stylex from '@stylexjs/stylex';
 
@@ -44,6 +44,7 @@ const styles = stylex.create({
 });
 
 const Info = () => {
+  const resume = useResume();
   const { className, style } = stylex.props(styles.mainInfo);
   return (
     <div className={`main-info ${className}`} style={style}>

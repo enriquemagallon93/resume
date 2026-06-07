@@ -1,6 +1,7 @@
-import resume from './resume.json';
 import NodesParser from './NodesParser';
 import { Helmet } from 'react-helmet-async';
+
+import { useResume } from './resume/useResume';
 
 import * as stylex from '@stylexjs/stylex';
 
@@ -49,6 +50,8 @@ const style = stylex.create({
 });
 
 const Header = () => {
+  const resume = useResume();
+
   return (
     <>
       <Helmet>
