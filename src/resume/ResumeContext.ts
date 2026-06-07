@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import bundledDefaultJson from '../../resumes/product-engineer-2025-December-17.json';
+import bundledDefaultJson from './defaultResume.generated';
 
 export const bundledDefault = bundledDefaultJson;
 

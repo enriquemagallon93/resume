@@ -8,6 +8,7 @@ export const REPO_RAW_BASE =
 export const MANIFEST_URL = `${REPO_RAW_BASE}manifest.json`;
 
 // The single version bundled at build time: it renders instantly via SSG and
-// doubles as the offline / fetch-failure fallback. Keep this in sync with the
-// file imported in ResumeContext.ts and (ideally) the manifest's defaultFile.
-export const BUNDLED_DEFAULT_PATH = 'product-engineer-2025-December-17.json';
+// doubles as the offline / fetch-failure fallback. Derived from the manifest's
+// defaultFile by scripts/generate-default-resume.mjs (runs on dev/build), so it
+// always matches the default and no-JS visitors see the right resume.
+export { DEFAULT_RESUME_PATH as BUNDLED_DEFAULT_PATH } from './defaultResume.generated';
