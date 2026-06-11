@@ -1,54 +1,53 @@
 import { ReactNode, useEffect, useState } from 'react';
 
 import { bundledDefault, ResumeContext, ResumeData } from './ResumeContext';
-import { resolveVersion, ResumeManifest } from './resolveVersion';
+import { resolveVersion, ResolveParams, Resolution, ResumeManifest } from './resolveVersion';
 import { BUNDLED_DEFAULT_PATH, MANIFEST_URL, REPO_RAW_BASE } from './source';
 
+const logResolution = (params: ResolveParams, resolution: Resolution, usesBundled: boolean) => {
+  const { version, reason, reasonCode } = resolution;
+  console.groupCollapsed('%c[resume] version resolution', 'color:#c96442;font-weight:bold');
+  console.log('query params:', params);
+  console.log('manifest:', MANIFEST_URL);
+  console.log('resolved:', version ? `${version.name} → ${version.path}` : '(none)');
+  console.log('reason:', `[${reasonCode}] ${reason}`);
+  console.log('action:', usesBundled ? 'using bundled default (no fetch)' : `fetching ${REPO_RAW_BASE}${version?.path}`);
+  console.groupEnd();
+};
+
 const ResumeProvider = ({ children }: { children: ReactNode }) => {
-  // Start from the bundled default so SSG output and first paint are instant.
-  const [data, setData] = useState<ResumeData>(bundledDefault);
+  const [resume, setResume] = useState<ResumeData>(bundledDefault);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const p = params.get('p');
-    const g = params.get('g');
-    const v = params.get('v');
-    const debug = params.get('debug') === 'true';
-    const hasSelector = Boolean(p || g || v);
+    const query = new URLSearchParams(window.location.search);
+    const params: ResolveParams = { p: query.get('p'), g: query.get('g'), v: query.get('v') };
+    const debug = query.get('debug') === 'true';
+    const hasSelector = Boolean(params.p || params.g || params.v);
 
-    // No selector and not debugging → keep the bundled default, no network.
     if (!hasSelector && !debug) return;
 
     let cancelled = false;
 
     (async () => {
       try {
-        const manifestRes = await fetch(MANIFEST_URL);
-        if (!manifestRes.ok) throw new Error(`manifest fetch failed (${manifestRes.status})`);
-        const manifest = (await manifestRes.json()) as ResumeManifest;
+        const manifestResponse = await fetch(MANIFEST_URL);
+        if (!manifestResponse.ok) throw new Error(`manifest fetch failed (${manifestResponse.status})`);
+        const manifest = (await manifestResponse.json()) as ResumeManifest;
 
-        const { version, reason, reasonCode } = resolveVersion(manifest, { p, g, v });
+        const resolution = resolveVersion(manifest, params);
+        const { version } = resolution;
         const usesBundled = !version || version.path === BUNDLED_DEFAULT_PATH;
 
-        if (debug) {
-          console.groupCollapsed('%c[resume] version resolution', 'color:#c96442;font-weight:bold');
-          console.log('query params:', { p, g, v });
-          console.log('manifest:', MANIFEST_URL);
-          console.log('resolved:', version ? `${version.name} → ${version.path}` : '(none)');
-          console.log('reason:', `[${reasonCode}] ${reason}`);
-          console.log('action:', usesBundled ? 'using bundled default (no fetch)' : `fetching ${REPO_RAW_BASE}${version.path}`);
-          console.groupEnd();
-        }
-
+        if (debug) logResolution(params, resolution, usesBundled);
         if (usesBundled) return;
 
-        const versionRes = await fetch(`${REPO_RAW_BASE}${version.path}`);
-        if (!versionRes.ok) throw new Error(`version fetch failed (${versionRes.status})`);
-        const json = (await versionRes.json()) as ResumeData;
+        const versionResponse = await fetch(`${REPO_RAW_BASE}${version.path}`);
+        if (!versionResponse.ok) throw new Error(`version fetch failed (${versionResponse.status})`);
+        const fetchedResume = (await versionResponse.json()) as ResumeData;
 
-        if (!cancelled) setData(json);
-      } catch (err) {
-        if (debug) console.warn('[resume] resolution/fetch failed, using bundled default:', err);
+        if (!cancelled) setResume(fetchedResume);
+      } catch (error) {
+        if (debug) console.warn('[resume] resolution/fetch failed, using bundled default:', error);
       }
     })();
 
@@ -57,7 +56,7 @@ const ResumeProvider = ({ children }: { children: ReactNode }) => {
     };
   }, []);
 
-  return <ResumeContext.Provider value={data}>{children}</ResumeContext.Provider>;
+  return <ResumeContext.Provider value={resume}>{children}</ResumeContext.Provider>;
 };
 
 export default ResumeProvider;

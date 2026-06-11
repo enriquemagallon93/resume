@@ -1,3 +1,16 @@
+export const PATH_REASON = 'path';
+export const GROUP_AND_VERSION_REASON = 'group+version';
+export const GROUP_LATEST_REASON = 'group-latest';
+export const VERSION_REASON = 'version';
+export const DEFAULT_REASON = 'default';
+
+export type ReasonCode =
+  | typeof PATH_REASON
+  | typeof GROUP_AND_VERSION_REASON
+  | typeof GROUP_LATEST_REASON
+  | typeof VERSION_REASON
+  | typeof DEFAULT_REASON;
+
 export type ResumeVersion = {
   name: string;
   path: string;
@@ -12,57 +25,62 @@ export type ResumeManifest = {
 };
 
 export type ResolveParams = {
+  /** Path to the resume JSON file */
   p?: string | null;
+  /** Group id of a resume variant */
   g?: string | null;
+  /** Version: an alias for a resume variant */
   v?: string | null;
 };
 
 export type Resolution = {
   version?: ResumeVersion;
-  reasonCode: string;
+  reasonCode: ReasonCode;
   reason: string;
 };
 
-// releaseDate is an ISO date (YYYY-MM-DD) so lexical compare === chronological.
-const newest = (list: ResumeVersion[]): ResumeVersion | undefined =>
-  list.slice().sort((a, b) => (a.releaseDate < b.releaseDate ? 1 : -1))[0];
+// ISO dates (YYYY-MM-DD) compare lexicographically, so the highest string is the newest.
+const getNewest = (versions: ResumeVersion[]): ResumeVersion | undefined =>
+  [...versions].sort((left, right) => right.releaseDate.localeCompare(left.releaseDate))[0];
 
-// Precedence: p (path) → g (group) → v (version alias) → default.
-//  - p: exact path match wins; otherwise fall through.
-//  - g: if the group exists, v selects within it (else newest of group);
-//       if the group is unknown, fall through.
-//  - v: first version whose aliases include v.
-//  - otherwise: the manifest defaultFile.
 export const resolveVersion = (
   manifest: ResumeManifest,
-  { p, g, v }: ResolveParams,
+  { p: path, g: group, v: version }: ResolveParams,
 ): Resolution => {
   const versions = manifest.versions ?? [];
-  const byPath = (path?: string) => versions.find((ver) => ver.path === path);
+  const findByPath = (target?: string) => versions.find((candidate) => candidate.path === target);
+  const findByAlias = (candidates: ResumeVersion[], alias: string) =>
+    candidates.find((candidate) => candidate.aliases?.includes(alias));
 
-  if (p) {
-    const hit = byPath(p);
-    if (hit) return { version: hit, reasonCode: 'path', reason: `?p=${p} matched an existing path` };
-  }
+  const getByPath = (): Resolution | undefined => {
+    const match = path ? findByPath(path) : undefined;
+    if (!match) return undefined;
+    return { version: match, reasonCode: PATH_REASON, reason: `?p=${path} matched an existing path` };
+  };
 
-  if (g) {
-    const groupVersions = versions.filter((ver) => ver.groupId === g);
-    if (groupVersions.length) {
-      if (v) {
-        const inGroup = groupVersions.find((ver) => ver.aliases?.includes(v));
-        if (inGroup) {
-          return { version: inGroup, reasonCode: 'group+version', reason: `?g=${g} + ?v=${v} matched an alias inside the group` };
-        }
-        return { version: newest(groupVersions), reasonCode: 'group-latest', reason: `?g=${g} found but ?v=${v} not in group → newest in group` };
-      }
-      return { version: newest(groupVersions), reasonCode: 'group-latest', reason: `?g=${g} found, no ?v → newest in group` };
+  const getByGroup = (): Resolution | undefined => {
+    if (!group) return undefined;
+    const groupVersions = versions.filter((candidate) => candidate.groupId === group);
+    if (!groupVersions.length) return undefined;
+
+    const aliasMatch = version ? findByAlias(groupVersions, version) : undefined;
+    if (aliasMatch) {
+      return { version: aliasMatch, reasonCode: GROUP_AND_VERSION_REASON, reason: `?g=${group} + ?v=${version} matched an alias inside the group` };
     }
-  }
+    return { version: getNewest(groupVersions), reasonCode: GROUP_LATEST_REASON, reason: `?g=${group} → newest in group` };
+  };
 
-  if (v) {
-    const hit = versions.find((ver) => ver.aliases?.includes(v));
-    if (hit) return { version: hit, reasonCode: 'version', reason: `?v=${v} matched an alias` };
-  }
+  const getByVersion = (): Resolution | undefined => {
+    const match = version ? findByAlias(versions, version) : undefined;
+    if (!match) return undefined;
+    return { version: match, reasonCode: VERSION_REASON, reason: `?v=${version} matched an alias` };
+  };
 
-  return { version: byPath(manifest.defaultFile), reasonCode: 'default', reason: 'no selector matched → manifest defaultFile' };
+  const getDefault = (): Resolution => ({
+    version: findByPath(manifest.defaultFile),
+    reasonCode: DEFAULT_REASON,
+    reason: 'no selector matched → manifest defaultFile',
+  });
+
+  return getByPath() || getByGroup() || getByVersion() || getDefault();
 };
