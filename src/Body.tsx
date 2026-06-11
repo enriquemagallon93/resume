@@ -1,7 +1,8 @@
 import { lazy } from 'react';
-import resume from './resume.json';
 import * as stylex from '@stylexjs/stylex';
 import { colors } from './themes/palette.stylex';
+
+import { useResume } from './resume/useResume';
 
 const NodesParser = lazy(() => import('./NodesParser'));
 
@@ -50,6 +51,8 @@ const styles = stylex.create({
 });
 
 const Body = () => {
+  const resume = useResume();
+
   return (
     <div {...stylex.props(styles.body)}>
       <NodesParser tree={resume.body} />

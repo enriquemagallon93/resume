@@ -1,6 +1,6 @@
 import NodesParser from './NodesParser';
 
-import resume from './resume.json';
+import { useResume } from './resume/useResume';
 
 import * as stylex from '@stylexjs/stylex';
 
@@ -33,6 +33,7 @@ const styles = stylex.create({
 });
 
 const Impact = () => {
+  const resume = useResume();
   const {className, style} = stylex.props(styles.impact);
   return (
     <div className={`main-info ${className}`} style={style}>
