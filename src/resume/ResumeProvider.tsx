@@ -4,9 +4,18 @@ import { bundledDefault, ResumeContext, ResumeData } from './ResumeContext';
 import { resolveVersion, ResolveParams, Resolution, ResumeManifest } from './resolveVersion';
 import { BUNDLED_DEFAULT_PATH, MANIFEST_URL, PARAM_DEBUG, PARAM_GROUP, PARAM_PATH, PARAM_VERSION, REPO_RAW_BASE } from './source';
 
+const LOG_PREFIX = '[resume]';
+const LOG_STYLE = 'color:#c96442;font-weight:bold';
+
+async function fetchJson<Data>(url: string): Promise<Data> {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`fetch failed (${response.status}): ${url}`);
+  return response.json() as Promise<Data>;
+}
+
 const logResolution = (params: ResolveParams, resolution: Resolution, usesBundled: boolean) => {
   const { version, reason, reasonCode } = resolution;
-  console.groupCollapsed('%c[resume] version resolution', 'color:#c96442;font-weight:bold');
+  console.groupCollapsed(`%c${LOG_PREFIX} version resolution`, LOG_STYLE);
   console.log('query params:', params);
   console.log('manifest:', MANIFEST_URL);
   console.log('resolved:', version ? `${version.name} → ${version.path}` : '(none)');
@@ -30,10 +39,7 @@ const ResumeProvider = ({ children }: { children: ReactNode }) => {
 
     (async () => {
       try {
-        const manifestResponse = await fetch(MANIFEST_URL);
-        if (!manifestResponse.ok) throw new Error(`manifest fetch failed (${manifestResponse.status})`);
-        const manifest = (await manifestResponse.json()) as ResumeManifest;
-
+        const manifest = await fetchJson<ResumeManifest>(MANIFEST_URL);
         const resolution = resolveVersion(manifest, params);
         const { version } = resolution;
         const usesBundled = !version || version.path === BUNDLED_DEFAULT_PATH;
@@ -41,13 +47,10 @@ const ResumeProvider = ({ children }: { children: ReactNode }) => {
         if (debug) logResolution(params, resolution, usesBundled);
         if (usesBundled) return;
 
-        const versionResponse = await fetch(`${REPO_RAW_BASE}${version.path}`);
-        if (!versionResponse.ok) throw new Error(`version fetch failed (${versionResponse.status})`);
-        const fetchedResume = (await versionResponse.json()) as ResumeData;
-
+        const fetchedResume = await fetchJson<ResumeData>(`${REPO_RAW_BASE}${version.path}`);
         if (!cancelled) setResume(fetchedResume);
       } catch (error) {
-        if (debug) console.warn('[resume] resolution/fetch failed, using bundled default:', error);
+        if (debug) console.warn(`${LOG_PREFIX} resolution/fetch failed, using bundled default:`, error);
       }
     })();
 
