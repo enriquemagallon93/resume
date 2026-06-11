@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useState } from 'react';
 
 import { bundledDefault, ResumeContext, ResumeData } from './ResumeContext';
 import { resolveVersion, ResolveParams, Resolution, ResumeManifest } from './resolveVersion';
-import { BUNDLED_DEFAULT_PATH, MANIFEST_URL, REPO_RAW_BASE } from './source';
+import { BUNDLED_DEFAULT_PATH, MANIFEST_URL, PARAM_DEBUG, PARAM_GROUP, PARAM_PATH, PARAM_VERSION, REPO_RAW_BASE } from './source';
 
 const logResolution = (params: ResolveParams, resolution: Resolution, usesBundled: boolean) => {
   const { version, reason, reasonCode } = resolution;
@@ -20,8 +20,8 @@ const ResumeProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
-    const params: ResolveParams = { p: query.get('p'), g: query.get('g'), v: query.get('v') };
-    const debug = query.get('debug') === 'true';
+    const params: ResolveParams = { p: query.get(PARAM_PATH), g: query.get(PARAM_GROUP), v: query.get(PARAM_VERSION) };
+    const debug = query.get(PARAM_DEBUG) === 'true';
     const hasSelector = Boolean(params.p || params.g || params.v);
 
     if (!hasSelector && !debug) return;

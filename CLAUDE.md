@@ -1,6 +1,6 @@
 # Code style for AI agents
 
-Follow these whenever adding or removing code in this repo.
+Follow these whenever adding, removing, or reviewing code in this repo.
 
 1. **Self-documenting code over comments.** Prefer clear names and small extracted helpers to explanatory comments. Use comments only for (a) business/domain logic (math, laws, non-obvious rules) and (b) doc comments (`/** … */`) on functions, parameters, and type fields a name can't make obvious. Drop any comment a ≤4-word name, a renamed parameter, or an extracted variable/function would replace.
 
