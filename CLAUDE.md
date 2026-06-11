@@ -8,4 +8,6 @@ Follow these whenever adding, removing, or reviewing code in this repo.
 
 3. **Constrained values → constants + union type.** When a field accepts only known values, model them as named constants and a union, not open `string`/`any`.
 
-4. **Shallow, single-responsibility logic.** Avoid nested conditionals; extract each branch into a small, well-named function and compose them (e.g. `getByPath() ?? getByGroup() ?? getByVersion() ?? getDefault()`). Keep secondary concerns (e.g. debug logging) in their own function.
+4. **Shallow, single-responsibility logic.** Avoid nested conditionals; extract each branch into a small, well-named function and compose them (e.g. `getByPath() ?? getByGroup() ?? getByVersion() ?? getDefault()`). Keep secondary concerns (e.g. debug logging) in their own function, and prefer module-level helpers over functions nested inside the main one.
+
+5. **No magic strings/values.** Extract repeated or significant literals (query keys, config values, status codes) into named constants and reference the constant, not the literal.
