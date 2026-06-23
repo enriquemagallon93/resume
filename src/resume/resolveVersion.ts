@@ -19,6 +19,8 @@ export type ResumeVersion = {
   aliases: string[];
   groupId: string;
   releaseDate: string;
+  /** Filename of this version's downloadable PDF in `public/`. */
+  pdf: string;
 };
 
 export type ResumeManifest = {

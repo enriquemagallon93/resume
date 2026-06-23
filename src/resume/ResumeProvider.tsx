@@ -1,8 +1,8 @@
 import { ReactNode, useEffect, useState } from 'react';
 
-import { bundledDefault, ResumeContext, ResumeData } from './ResumeContext';
+import { bundledDefault, ResumeContext, ResumeData, ResumePdfContext } from './ResumeContext';
 import { resolveVersion, ResolveParams, Resolution, ResumeManifest } from './resolveVersion';
-import { BUNDLED_DEFAULT_PATH, MANIFEST_URL, PARAM_DEBUG, PARAM_GROUP, PARAM_PATH, PARAM_VERSION, REPO_RAW_BASE } from './source';
+import { BUNDLED_DEFAULT_PATH, BUNDLED_DEFAULT_PDF, MANIFEST_URL, PARAM_DEBUG, PARAM_GROUP, PARAM_PATH, PARAM_VERSION, REPO_RAW_BASE } from './source';
 
 const LOG_PREFIX = '[resume]';
 const LOG_STYLE = 'color:#c96442;font-weight:bold';
@@ -26,6 +26,7 @@ const logResolution = (params: ResolveParams, resolution: Resolution, usesBundle
 
 const ResumeProvider = ({ children }: { children: ReactNode }) => {
   const [resume, setResume] = useState<ResumeData>(bundledDefault);
+  const [pdf, setPdf] = useState<string>(BUNDLED_DEFAULT_PDF);
 
   useEffect(() => {
     const query = new URLSearchParams(window.location.search);
@@ -45,6 +46,7 @@ const ResumeProvider = ({ children }: { children: ReactNode }) => {
         const usesBundled = !version || version.path === BUNDLED_DEFAULT_PATH;
 
         if (debug) logResolution(params, resolution, usesBundled);
+        if (!cancelled && version?.pdf) setPdf(version.pdf);
         if (usesBundled) return;
 
         const fetchedResume = await fetchJson<ResumeData>(`${REPO_RAW_BASE}${version.path}`);
@@ -59,7 +61,11 @@ const ResumeProvider = ({ children }: { children: ReactNode }) => {
     };
   }, []);
 
-  return <ResumeContext.Provider value={resume}>{children}</ResumeContext.Provider>;
+  return (
+    <ResumeContext.Provider value={resume}>
+      <ResumePdfContext.Provider value={pdf}>{children}</ResumePdfContext.Provider>
+    </ResumeContext.Provider>
+  );
 };
 
 export default ResumeProvider;

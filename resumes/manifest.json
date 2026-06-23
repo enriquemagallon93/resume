@@ -6,14 +6,16 @@
             "path": "product-engineer-2025-December-17.json",
             "aliases": ["legacy"],
             "groupId": "product-engineer",
-            "releaseDate": "2025-12-17"
+            "releaseDate": "2025-12-17",
+            "pdf": "enrique_resume_dec_2025.pdf"
         },
         {
             "name": "Product Engineer — Jun 2026 (AI-assisted)",
             "path": "product-engineer-2026-June-07.json",
             "aliases": ["ai", "frontend-staff"],
             "groupId": "product-engineer",
-            "releaseDate": "2026-06-07"
+            "releaseDate": "2026-06-07",
+            "pdf": "enrique_resume_june_2026.pdf"
         }
     ]
 }

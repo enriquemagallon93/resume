@@ -15,5 +15,10 @@ export const PARAM_DEBUG = 'debug';
 // The single version bundled at build time: it renders instantly via SSG and
 // doubles as the offline / fetch-failure fallback. Derived from the manifest's
 // defaultFile by scripts/generate-default-resume.mjs (runs on dev/build), so it
-// always matches the default and no-JS visitors see the right resume.
-export { DEFAULT_RESUME_PATH as BUNDLED_DEFAULT_PATH } from './defaultResume.generated';
+// always matches the default and no-JS visitors see the right resume. The PDF
+// filename is baked in too so the download button matches the bundled default
+// without needing to fetch the manifest.
+export {
+  DEFAULT_RESUME_PATH as BUNDLED_DEFAULT_PATH,
+  DEFAULT_RESUME_PDF as BUNDLED_DEFAULT_PDF,
+} from './defaultResume.generated';

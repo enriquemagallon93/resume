@@ -4,4 +4,5 @@
 import data from '../../resumes/product-engineer-2026-June-07.json';
 
 export const DEFAULT_RESUME_PATH = 'product-engineer-2026-June-07.json';
+export const DEFAULT_RESUME_PDF = 'enrique_resume_june_2026.pdf';
 export default data;

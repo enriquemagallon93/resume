@@ -3,6 +3,8 @@ import { MdDownload } from 'react-icons/md';
 
 import * as stylex from '@stylexjs/stylex';
 
+import { useResumePdf } from './resume/useResume';
+
 const styles = stylex.create({
   downloadButton: {
     position: 'fixed',
@@ -30,9 +32,10 @@ const styles = stylex.create({
 });
 
 const DownloadPDF = () => {
+  const pdf = useResumePdf();
   return (
-    <a href='./enrique_resume_dec_2025.pdf' download {...stylex.props(styles.downloadButton)}>
-      Donwload PDF <MdDownload />
+    <a href={`./${pdf}`} download {...stylex.props(styles.downloadButton)}>
+      Download PDF <MdDownload />
     </a>
   );
 };
