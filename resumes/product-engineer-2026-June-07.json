@@ -656,7 +656,7 @@
                     "children": [
                         "Owned and led a staff-level initiative to build a shared right-drawer React component used across the product to host internal chat tools, including an AI chatbot.",
                         "Designed APIs and integration patterns in a monorepo environment and coordinated adoption across 16 squads.",
-                        "Delivered the feature via a phased, feature-flagged rollout, enabling access for ~1.5M users and ~50k daily views while ensuring compatibility with legacy server-rendered pages (Ruby on rails templates).",
+                        "Delivered the feature via a phased, feature-flagged rollout, enabling access for ~1.5M users and ~50k daily views while ensuring compatibility with legacy server-rendered pages (Ruby on Rails templates).",
                         "Built and owned a learning management system used for customer onboarding, reducing onboarding-related support questions.",
                         "Established a TypeScript-first React codebase, introduced Storybook and interaction tests, and implemented a Slate-based rich-text editor with JSON serialization."
                     ]
@@ -766,7 +766,7 @@
                     "type": "BULLETED_LIST",
                     "children": [
                         "Developed Vue components for accounting and inventory control applications.",
-                        "Implemented REST API services using nodejs and Mongo DB."
+                        "Implemented REST API services using NodeJS and MongoDB."
                     ]
                 }
             ]
@@ -802,7 +802,7 @@
                     "type": "BULLETED_LIST",
                     "children": [
                         "Created various advertising and social dynamics microsites, including mini games, simple image composition editors, trivia and social challenges.",
-                        "Implemented REST API services using nodejs and Mongo DB.",
+                        "Implemented REST API services using NodeJS and MongoDB.",
                         "Was the owner of some clients' websites (Dish, Exa FM, Infonavit, Jumex).",
                         "Developed a fully in-house CMS for dish.com.mx"
                     ]
@@ -882,7 +882,7 @@
             "type": "HEADING",
             "number": 3,
             "children": [
-                "Problem Solving | Hacker rank | ",
+                "Problem Solving | HackerRank | ",
                 {
                     "type": "TEXT",
                     "children": "Sep 2020",
