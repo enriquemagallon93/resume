@@ -37,7 +37,7 @@ const Impact = () => {
   const {className, style} = stylex.props(styles.impact);
   return (
     <div className={`main-info ${className}`} style={style}>
-      <h3 {...stylex.props(headingStyles[4])}> Impact Highligts </h3>
+      <h3 {...stylex.props(headingStyles[4])}> Impact Highlights </h3>
       <NodesParser tree={resume.selectedImpact} />
     </div>
   );

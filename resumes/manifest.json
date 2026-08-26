@@ -1,5 +1,5 @@
 {
-    "defaultFile": "product-engineer-2026-June-07.json",
+    "defaultFile": "product-engineer-2026-August-26.json",
     "versions": [
         {
             "name": "Product Engineer — Dec 2025",
@@ -16,6 +16,14 @@
             "groupId": "product-engineer",
             "releaseDate": "2026-06-07",
             "pdf": "enrique_resume_june_2026.pdf"
+        },
+        {
+            "name": "Engineering Manager — Aug 2026",
+            "path": "product-engineer-2026-August-26.json",
+            "aliases": ["em", "engineering-manager"],
+            "groupId": "product-engineer",
+            "releaseDate": "2026-08-26",
+            "pdf": "enrique_resume_august_2026.pdf"
         }
     ]
 }

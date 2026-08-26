@@ -2,7 +2,7 @@ import QRCode from 'react-qr-code';
 import { colors } from './themes/palette.stylex';
 import { useEffect, useState } from 'react';
 
-export const SIZE = 180;
+export const SIZE = 120;
 
 const SsrQrCode = ({ title }: { title: string }) => {
   return <div style={{ width: SIZE, height: SIZE, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

@@ -32,19 +32,29 @@ const getPageFunctions = (originalPage: Element) => {
     return lastPageNumber === pageNumber;
   };
 
+  const mustStayWholeOnOnePage = (element: Element): boolean => {
+    const { breakInside } = getComputedStyle(element);
+    const { offsetHeight: elementHeight } = element as HTMLElement;
+
+    return breakInside === AVOID_BREAK_INSIDE && elementHeight <= pageAvailableHeight;
+  };
+
   const removeEmptyPaths = (path: number[]) => path.join(',').replace(/(,0)+$/g, '').split(',').map(number => Number.parseInt(number));
 
   return {
     fitInPage,
     getLastPageNumber,
+    mustStayWholeOnOnePage,
     removeEmptyPaths
   };
 };
 
+const AVOID_BREAK_INSIDE = 'avoid';
+
 const excludedNodes = new Set(['BR']);
 
 export const getPathsToSplit = (originalPage: Element ): number[][] => {
-  const { fitInPage, getLastPageNumber, removeEmptyPaths } = getPageFunctions(originalPage);
+  const { fitInPage, getLastPageNumber, mustStayWholeOnOnePage, removeEmptyPaths } = getPageFunctions(originalPage);
 
   const numberOfPages = getLastPageNumber(originalPage);
 
@@ -58,7 +68,7 @@ export const getPathsToSplit = (originalPage: Element ): number[][] => {
     if (fitInPage(currentNode, pageNumber)) {
       return;
     }
-    if (currentNode.children.length === 0) {
+    if (currentNode.children.length === 0 || (currentNode !== originalPage && mustStayWholeOnOnePage(currentNode))) {
       pathsToSplit.push(removeEmptyPaths([...path]));
       pageNumber += 1;
       return;

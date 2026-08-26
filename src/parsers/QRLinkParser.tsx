@@ -7,10 +7,10 @@ export const QR_LINK_NODE_TYPE = 'QR_LINK';
 
 const styles = stylex.create({
   container: {
-    flexBasis: 180,
+    flexBasis: 120,
     flexGrow: 1,
     flexShrink: 1,
-    maxHeight: 180,
+    maxHeight: 150,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
