@@ -13,7 +13,7 @@ const styles = stylex.create({
   root: {
     fontFamily: "'Ubuntu Mono', 'Consolas', 'Courier New', monospace",
     fontSize: 9.5,
-    lineHeight: 1.28,
+    lineHeight: 1.25,
     color: '#1a1a1a',
     display: 'flex',
     flexDirection: 'column',
@@ -121,7 +121,7 @@ const TerminalWindowTitle = () => {
         <span {...stylex.props(styles.dot, styles.dotMaximize)} />
       </span>
       <span {...stylex.props(styles.titleText)}>
-        {resume.name} {resume.lastName} · {resume.title}
+        {resume.name} {resume.lastName}{resume.pronouns ? ` (${resume.pronouns})` : ''} · {resume.title}
         <a
           href={NAME_PRONUNCIATION_URL}
           target="_blank"

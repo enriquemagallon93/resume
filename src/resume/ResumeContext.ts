@@ -9,7 +9,11 @@ export const TERMINAL_VARIANT = 'terminal';
 
 export type ResumeVariant = typeof TERMINAL_VARIANT;
 
-export type ResumeData = typeof bundledDefaultJson & { variant?: ResumeVariant };
+export type ResumeData = typeof bundledDefaultJson & {
+  variant?: ResumeVariant;
+  /** Rendered next to the name (e.g. "he/him/his") so ATS parsers pick it up from the text. */
+  pronouns?: string;
+};
 
 export const ResumeContext = createContext<ResumeData>(bundledDefault);
 

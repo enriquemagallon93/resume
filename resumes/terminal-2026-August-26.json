@@ -3,6 +3,7 @@
     "name": "Enrique",
     "lastName": "Magallón",
     "title": "Engineering Manager",
+    "pronouns": "he/him/his",
     "intro": [
         "Hi! I'm Enrique, an Engineering Manager with 13+ years of experience building web products. I lead a team while staying close to the code: architecture, mentoring, and shipping features that people use every day. AI tools like Claude Code and Copilot are part of my daily workflow."
     ],
@@ -109,6 +110,24 @@
                     }
                 },
                 " https://www.linkedin.com/in/enrique-magallon/"
+            ],
+            "props": {
+                "target": "_blank"
+            }
+        },
+        {
+            "type": "LINK",
+            "to": "https://enrique-magallon.com/",
+            "children": [
+                {
+                    "type": "ICON",
+                    "name": "website",
+                    "props": {
+                        "size": 20,
+                        "title": "website"
+                    }
+                },
+                " https://enrique-magallon.com/"
             ],
             "props": {
                 "target": "_blank"

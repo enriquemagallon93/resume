@@ -54,6 +54,11 @@ const style = stylex.create({
     fontSize: 20,
     marginLeft: 10,
     verticalAlign: 'middle',
+  },
+  pronouns: {
+    color: colors.secondaryHightlight,
+    fontSize: 14,
+    marginLeft: 8,
   }
 });
 
@@ -70,6 +75,7 @@ const Header = () => {
           <div>
             <h1 {...stylex.props(headingStyles[1])}>
               {resume.name} {resume.lastName}
+              {resume.pronouns && <span {...stylex.props(style.pronouns)}>({resume.pronouns})</span>}
               <a
                 href={NAME_PRONUNCIATION_URL}
                 target="_blank"

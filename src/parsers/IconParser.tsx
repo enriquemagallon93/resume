@@ -1,7 +1,7 @@
 import { IconBaseProps, type IconType } from 'react-icons';
 import { MdRocketLaunch } from 'react-icons/md';
 import { MaybeTree, TreeNode } from '../NodesParser';
-import { MdEmail, MdOutlinePhoneAndroid, MdLocationPin } from 'react-icons/md';
+import { MdEmail, MdOutlinePhoneAndroid, MdLocationPin, MdLanguage } from 'react-icons/md';
 import { IoLogoLinkedin } from "react-icons/io";
 import { FaLanguage } from "react-icons/fa6";
 import { FaReact, FaNodeJs, FaSass, FaHtml5, FaCss3, FaTerminal } from "react-icons/fa";
@@ -16,6 +16,7 @@ const icons: { [key in string]?: IconType } = {
   locationPin: MdLocationPin,
   linkedIn: IoLogoLinkedin,
   language: FaLanguage,
+  website: MdLanguage,
   react: FaReact,
   node: FaNodeJs,
   sass: FaSass,
