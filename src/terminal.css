@@ -1,0 +1,41 @@
+/* Terminal resume variant: fixed light look so it stays printable on white.
+   Color/size overrides that compete with stylex rules live in TerminalResume.tsx;
+   this file only holds what stylex does not express (pseudo-element content)
+   and layout for the variant's own class names. */
+
+.terminal-resume h2::before {
+  content: "> ";
+}
+
+.terminal-photo img {
+  width: 100%;
+  display: block;
+}
+
+.terminal-info {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 14px;
+}
+
+.terminal-info > * {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.terminal-indent {
+  padding-left: 16px;
+}
+
+.terminal-cv-body {
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.terminal-url {
+  color: #6e6e6e;
+}

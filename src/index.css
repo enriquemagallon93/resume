@@ -32,7 +32,11 @@ svg {
 }
 
 @media print {
+  :root {
+    background-color: white;
+  }
+
   body {
     display: block;
-  }   
+  }
 }

@@ -35,7 +35,12 @@ const PagesCut = ({ fullPageRef, fallbackContent}: PagesCutProps) => {
 
     if (!fullPage) return;
 
-    const delayToCalculatePages = setTimeout(() => {
+    let cancelled = false;
+    let delayToCalculatePages: ReturnType<typeof setTimeout> | undefined;
+
+    const calculatePages = () => {
+      if (cancelled) return;
+
       const pathsToSplit = getPathsToSplit(fullPage);
       const { cloneFromPathToLimit } = getCloningFunctions(fullPage);
 
@@ -45,10 +50,16 @@ const PagesCut = ({ fullPageRef, fallbackContent}: PagesCutProps) => {
 
       setPages(pageElements);
       setIsReady(true);
+    };
 
-    }, 100);
+    const fontsReady = document.fonts?.ready ?? Promise.resolve();
+
+    fontsReady.then(() => {
+      delayToCalculatePages = setTimeout(calculatePages, 100);
+    });
 
     return () => {
+      cancelled = true;
       clearTimeout(delayToCalculatePages);
     };
   }, [fullPageRef, isReady]);

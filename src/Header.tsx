@@ -1,7 +1,9 @@
 import NodesParser from './NodesParser';
 import { Helmet } from 'react-helmet-async';
+import { MdHeadphones } from 'react-icons/md';
 
 import { useResume } from './resume/useResume';
+import { NAME_PRONUNCIATION_URL } from './pronunciation';
 
 import * as stylex from '@stylexjs/stylex';
 
@@ -46,6 +48,12 @@ const style = stylex.create({
     overflow: 'hidden',
     borderRadius: '50%',
     border: `4px solid ${colors.secondaryHightlight}`
+  },
+  pronunciation: {
+    color: colors.secondaryHightlight,
+    fontSize: 20,
+    marginLeft: 10,
+    verticalAlign: 'middle',
   }
 });
 
@@ -60,7 +68,18 @@ const Header = () => {
       <div {...stylex.props(style.header)}>
         <div {...stylex.props(style.text)}>
           <div>
-            <h1 {...stylex.props(headingStyles[1])}>{resume.name} {resume.lastName}</h1>
+            <h1 {...stylex.props(headingStyles[1])}>
+              {resume.name} {resume.lastName}
+              <a
+                href={NAME_PRONUNCIATION_URL}
+                target="_blank"
+                rel="noreferrer"
+                title="How to pronounce Enrique"
+                {...stylex.props(style.pronunciation)}
+              >
+                <MdHeadphones />
+              </a>
+            </h1>
             <h2 {...stylex.props(headingStyles[2])}>{resume.title}</h2>
           </div>
           <div>

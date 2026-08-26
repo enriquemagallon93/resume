@@ -21,7 +21,9 @@ const getPageFunctions = (originalPage: Element) => {
     const y1 = getY1FromElement(originalPage, element) - paddingTopN;
     const y2 = y1 + childHeight;
 
-    const lastPageNumber = Math.floor(y2 / pageAvailableHeight) + 1;
+    // Elements pulled above the content area by negative margins (y2 <= 0)
+    // still belong to the first page.
+    const lastPageNumber = Math.max(1, Math.floor(y2 / pageAvailableHeight) + 1);
 
     return lastPageNumber;
   };

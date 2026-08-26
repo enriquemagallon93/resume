@@ -4,7 +4,12 @@ import bundledDefaultJson, { DEFAULT_RESUME_PDF } from './defaultResume.generate
 
 export const bundledDefault = bundledDefaultJson;
 
-export type ResumeData = typeof bundledDefaultJson;
+/** Alternate visual layouts a version can opt into via its JSON "variant" field. */
+export const TERMINAL_VARIANT = 'terminal';
+
+export type ResumeVariant = typeof TERMINAL_VARIANT;
+
+export type ResumeData = typeof bundledDefaultJson & { variant?: ResumeVariant };
 
 export const ResumeContext = createContext<ResumeData>(bundledDefault);
 

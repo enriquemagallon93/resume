@@ -2,30 +2,35 @@ import * as stylex from '@stylexjs/stylex';
 
 import { colors } from './palette.stylex';
 
+// Dracula accents (https://draculatheme.com/spec) recalibrated for contrast.
+// Light mode: official dark bands (#282a36) with the official foreground
+// (#f8f8f2) and a darkened purple for headings on the light page (≈7:1).
 export const dracula = stylex.createTheme(colors, {
-  primaryBackground: "#171717",
-  secondaryHightlight: "#760064",
-  hightlight: "#c900c7",
-  primaryColor: "#6272a4",
-  secondaryColor: "#ecf7f3",
-  bold: "#e96f6f",
-  secondaryBackground: "#282a36",
-  pageBackground: "#ecf7f3",
-  pageColor: "#483422",
-  pageHightlight: "#ff5555"
+  primaryBackground: '#282a36',
+  primaryColor: '#f8f8f2',
+  secondaryBackground: '#1e2029',
+  secondaryColor: '#f8f8f2',
+  hightlight: '#ff79c6',
+  secondaryHightlight: '#bd93f9',
+  bold: '#8be9fd',
+  pageBackground: '#f8f8f2',
+  pageColor: '#343746',
+  pageHightlight: '#6d3bbd',
+  hyper: '#1d4ed8',
 });
 
+// Dark mode: everything sits on official Dracula surfaces, where the spec's
+// accent colors already clear AA (pink ≈6.5:1, purple ≈5.6:1, cyan ≈9.8:1).
 export const darkDracula = stylex.createTheme(colors, {
-  primaryBackground: "#1a1a18",
-  secondaryBackground: "#242424",
-  hightlight: "#864E7D",
-  secondaryHightlight: "#652757",
-  primaryColor: "#63686C",
-  secondaryColor: "#A1A499",
-  bold: "#85605B",
-  pageBackground:"#232A26",
-  pageHightlight: "#86544f",
-  pageColor: "#978C7F",
-  hyper: "#4B5D7C"
+  primaryBackground: '#1e2029',
+  primaryColor: '#f8f8f2',
+  secondaryBackground: '#343746',
+  secondaryColor: '#f8f8f2',
+  hightlight: '#ff79c6',
+  secondaryHightlight: '#bd93f9',
+  bold: '#ffb86c',
+  pageBackground: '#282a36',
+  pageColor: '#f8f8f2',
+  pageHightlight: '#bd93f9',
+  hyper: '#8be9fd',
 });
-

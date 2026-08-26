@@ -4,7 +4,9 @@
         {
             "name": "Product Engineer — Dec 2025",
             "path": "product-engineer-2025-December-17.json",
-            "aliases": ["legacy"],
+            "aliases": [
+                "legacy"
+            ],
             "groupId": "product-engineer",
             "releaseDate": "2025-12-17",
             "pdf": "enrique_resume_dec_2025.pdf"
@@ -12,7 +14,10 @@
         {
             "name": "Product Engineer — Jun 2026 (AI-assisted)",
             "path": "product-engineer-2026-June-07.json",
-            "aliases": ["ai", "frontend-staff"],
+            "aliases": [
+                "ai",
+                "frontend-staff"
+            ],
             "groupId": "product-engineer",
             "releaseDate": "2026-06-07",
             "pdf": "enrique_resume_june_2026.pdf"
@@ -20,10 +25,23 @@
         {
             "name": "Engineering Manager — Aug 2026",
             "path": "product-engineer-2026-August-26.json",
-            "aliases": ["em", "engineering-manager"],
+            "aliases": [
+                "em",
+                "engineering-manager"
+            ],
             "groupId": "product-engineer",
             "releaseDate": "2026-08-26",
             "pdf": "enrique_resume_august_2026.pdf"
+        },
+        {
+            "name": "Terminal — Aug 2026",
+            "path": "terminal-2026-August-26.json",
+            "aliases": [
+                "terminal"
+            ],
+            "groupId": "terminal",
+            "releaseDate": "2026-08-26",
+            "pdf": "enrique_resume_terminal_august_2026.pdf"
         }
     ]
 }
