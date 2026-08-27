@@ -6,8 +6,9 @@ export const bundledDefault = bundledDefaultJson;
 
 /** Alternate visual layouts a version can opt into via its JSON "variant" field. */
 export const TERMINAL_VARIANT = 'terminal';
+export const ATS_VARIANT = 'ats';
 
-export type ResumeVariant = typeof TERMINAL_VARIANT;
+export type ResumeVariant = typeof TERMINAL_VARIANT | typeof ATS_VARIANT;
 
 export type ResumeData = typeof bundledDefaultJson & {
   variant?: ResumeVariant;

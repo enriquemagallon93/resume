@@ -1,0 +1,25 @@
+/* ATS resume variant: single column, plain text on white, no decorative
+   layout. Color/typography overrides that compete with stylex rules live in
+   AtsResume.tsx; this file only holds layout for the variant's class names. */
+
+.ats-photo img {
+  width: 100%;
+  display: block;
+}
+
+.ats-info > * {
+  display: block;
+}
+
+/* Stack a row's sub-entries (e.g. the two language lines). Children of the
+   skills block are unaffected: it is a flex container, so its items keep
+   flowing in the wrapping row. */
+.ats-info > * > * {
+  display: block;
+}
+
+.ats-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
