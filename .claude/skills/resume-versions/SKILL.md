@@ -51,17 +51,15 @@ Set `manifest.defaultFile` to an existing version's `path`.
 
 ## Generate the version PDF
 
-The download button serves a static PDF per version from `public/`. After adding a version or changing a version's content, (re)generate its PDF by printing the rendered page so the download matches what's on screen:
+The download button serves a static PDF per version from `public/`. After adding a version or changing a version's content, (re)generate its PDF with:
 
-1. Start the app: `bun run dev` (serves at `http://localhost:5173/`).
-2. Render the target version locally. Local dev fetches non-default versions from the remote `main` branch, so to capture **local** edits, temporarily point `manifest.defaultFile` at the target version's `path`, restart `bun run dev` (this bakes it as the bundled default), and open `/`. Restore `defaultFile` afterward.
-3. Wait for the resume to finish rendering (e.g. wait for the "Housecall Pro" text), then print to PDF with Playwright — this emulates print media so the site's print styles apply and the settings panel is hidden:
-   ```js
-   await page.emulateMedia({ media: 'print' });
-   await page.pdf({ path: 'public/<pdf-filename>', printBackground: true, preferCSSPageSize: true });
-   ```
-4. Save it as `public/<pdf-filename>` (per the naming convention) and set the version's manifest `pdf` field to that filename.
-5. Commit the new/updated PDF together with the manifest.
+```sh
+bun run generate:pdf [aliasOrPath]   # omit the arg to target the current default
+```
+
+`scripts/generate-pdf.mjs` does the whole flow: temporarily bakes the target version as the bundled default (local dev fetches non-default versions from remote `main`, so this is how local edits get captured), starts the dev server, prints the rendered page with Playwright under print media emulation (terminal variant: A4 + zero margins; others: `preferCSSPageSize`), writes `public/<pdf>` per the manifest, stamps PDF metadata (Title/Author with pronouns/Subject/Keywords with the version's links) via Ghostscript, and restores the manifest. Requirements: `gs` installed and a Playwright Chromium under `~/.cache/ms-playwright` (or `CHROMIUM_PATH`); port 5173 must be free.
+
+Commit the new/updated PDF together with the manifest. If the version is new, set its manifest `pdf` field (naming convention above) before running the script.
 
 ## Redeploy after content, PDF, or default changes
 
